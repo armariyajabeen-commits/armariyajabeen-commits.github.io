@@ -3,333 +3,324 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maria Jabeen — Architect &amp; Climate Resilience Researcher</title>
-<meta name="description" content="Maria Jabeen: architect and researcher working on climate risk, flood vulnerability, spatial evidence and human-centred AI for urban planning. Research, interactive flood maps and GIS map plates.">
-<meta property="og:title" content="Maria Jabeen — Architect &amp; Climate Resilience Researcher">
+<title>Maria Jabeen — Archive of Evidence</title>
+<meta name="description" content="Maria Jabeen: architect and researcher working on climate risk, flood vulnerability, spatial evidence and human-centred AI for urban planning. An interactive archive of research, flood maps and GIS map plates.">
+<meta property="og:title" content="Maria Jabeen — Archive of Evidence">
 <meta property="og:description" content="Climate risk, flood vulnerability, spatial evidence and human-centred AI for urban planning.">
-<meta property="og:image" content="img/p01-board-sm.jpg">
+<meta property="og:image" content="img/p01-detail-sm.jpg">
+<meta name="theme-color" content="#0d0d0c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
 
-<!-- ============ TITLE BLOCK / NAV ============ -->
-<header class="titlebar">
-  <a class="tb-name" href="#top">Maria Jabeen</a>
-  <nav class="tb-nav" aria-label="Sections">
-    <a href="#research"><span>01</span>Research</a>
-    <a href="#webmaps"><span>02</span>Web maps</a>
-    <a href="#plates"><span>03</span>Map plates</a>
-    <a href="#practice"><span>04</span>Practice</a>
-    <a href="#methods"><span>05</span>Methods</a>
-    <a href="#contact"><span>06</span>Contact</a>
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <nav class="nav-left" aria-label="Sections">
+    <a href="#research">Research</a>
+    <a href="#instruments">Web maps</a>
+    <a href="#collections">Collections</a>
+    <a href="#timeline">Timeline</a>
+  </nav>
+  <a class="monogram" href="#top" aria-label="Maria Jabeen — home"><span>mj</span></a>
+  <nav class="nav-right" aria-label="More">
+    <a href="#methods">Methods</a>
+    <a class="nav-cta" href="#contact">Contact</a>
   </nav>
 </header>
 
 <main id="top">
 
-<!-- ============ SHEET 00 — HERO ============ -->
-<section class="sheet hero">
-  <div class="sheet-label"><span>SHEET 00</span><span>PROFILE</span><span>LAHORE, PK · 31.52°N 74.36°E</span></div>
-  <div class="hero-grid">
-    <div class="hero-text">
-      <p class="eyebrow">Architect · Climate Resilience &amp; Urban Planning Researcher</p>
-      <h1>Reading climate vulnerability <em>across evidence.</em></h1>
-      <p class="lede">I am an architect who moved from designing shelter to asking what our maps, datasets and models can — and cannot — say about the people living with flood risk. My work combines household and community research, reproducible GIS analysis, and human‑centred AI that knows where the evidence runs out.</p>
-      <div class="hero-actions">
-        <a class="btn btn-solid" href="#webmaps">Explore the flood maps</a>
-        <a class="btn" href="#plates">View map plates</a>
+<!-- ================= HERO / REPOSITORY ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-head">
+      <div>
+        <p class="crumbs">Archive <i>/</i> Drawer 00 <i>/</i> Registry <i>/</i> Profile</p>
+        <h1 id="hero-title" class="display">Archive of <em>Evidence</em></h1>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-icons" aria-hidden="true"><span class="mi mi-on"></span><span class="mi"></span></div>
+        <p>Maria Jabeen<br>Architect · Researcher</p>
+        <p class="dim">Lahore · 31.52°N 74.36°E</p>
       </div>
     </div>
-    <figure class="hero-fig">
-      <img src="img/p01-detail-sm.jpg" srcset="img/p01-detail-sm.jpg 900w, img/p01-detail.jpg 2000w" sizes="(max-width: 900px) 100vw, 40vw" alt="Map of southern Pakistan showing buildings and roads coloured by 2022 flood state">
-      <figcaption><span>FIG. 00</span> Buildings and roads by detected flood state, Larkana–Jacobabad corridor, 2022.</figcaption>
-    </figure>
-  </div>
-  <dl class="stats">
-    <div><dt>Master of Architecture</dt><dd>NUST, 2024 · Distinction</dd></div>
-    <div><dt>Registered architect</dt><dd>PCATP, 2021</dd></div>
-    <div><dt>Research focus</dt><dd>Floods · Evidence · AI</dd></div>
-    <div><dt>Spatial studies</dt><dd>9 projects · 8 countries</dd></div>
-  </dl>
-</section>
-
-<!-- ============ SHEET 01 — RESEARCH ============ -->
-<section class="sheet" id="research">
-  <div class="sheet-label"><span>SHEET 01</span><span>RESEARCH</span><span>2023 — PRESENT</span></div>
-  <h2 class="sheet-title">Research</h2>
-  <p class="intro">My research trajectory runs from post‑flood shelter to a broader question: <strong>what should a planning system do when spatial data, institutional knowledge and community knowledge give different accounts of climate risk?</strong></p>
-
-  <div class="research-grid">
-    <article class="r-card r-card--lead">
-      <p class="r-meta">Independent research · 2025 — present</p>
-      <h3>Human–Hydro Inference (HHI)</h3>
-      <p>An experimental framework testing whether an AI system can recognise the limits of what sparse flood and settlement evidence supports. Using real Pakistan Bureau of Statistics and NDMA/PDMA records for the 2022–23 floods, HHI separates deterministic spatial computation from model interpretation and checks every AI‑generated claim against an independent rule‑based validator.</p>
-      <ul class="ticks">
-        <li>Distinguishes <em>directly supported</em> evidence, <em>reasonable derivation</em>, <em>structurally unanswerable</em> questions and <em>unsupported premises</em>.</li>
-        <li>Twenty named failure modes — e.g. treating a missing value as zero, or a camp headcount as confirmed displacement.</li>
-        <li>Develops <strong>epistemic restraint</strong>: “the evidence does not establish this” counts as a correct output.</li>
-      </ul>
-      <a class="link-arrow" href="https://github.com/armariyajabeen-commits/hhi-atlas" target="_blank" rel="noopener">HHI Atlas — code &amp; build reports</a>
-    </article>
-
-    <article class="r-card">
-      <p class="r-meta">Master’s thesis · NUST · 2023 — 2024</p>
-      <h3>Flood recovery &amp; transitional shelter, Rajanpur</h3>
-      <p><em>Understanding Prototype Structures for Transitional Shelter for Rural Flooding.</em> Mixed‑methods research combining household surveys with community and stakeholder perspectives on post‑flood shelter: functionality, privacy, comfort, cultural fit, durability, livelihoods and mobility.</p>
-      <p class="r-note">Key lesson: two households exposed to the same flood can follow very different recovery paths — the spatial outcome is inseparable from social and institutional conditions.</p>
-    </article>
-
-    <article class="r-card">
-      <p class="r-meta">Research interests</p>
-      <h3>Where I am heading</h3>
-      <ul class="tags">
-        <li>Climate risk</li><li>Urban vulnerability</li><li>Flood risk</li><li>Planning under uncertainty</li>
-        <li>Spatial modelling</li><li>Remote sensing</li><li>Participatory research</li><li>Community knowledge</li>
-        <li>Human‑centred AI</li><li>Evidence uncertainty</li><li>Bias identification</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<!-- ============ SHEET 02 — INTERACTIVE WEB MAPS ============ -->
-<section class="sheet" id="webmaps">
-  <div class="sheet-label"><span>SHEET 02</span><span>INTERACTIVE WEB MAPS</span><span>MAPLIBRE · D3 · OPEN DATA</span></div>
-  <h2 class="sheet-title">Interactive flood maps</h2>
-  <p class="intro">Two research sites built on one verified data chain. Drop two circles on the map and compare who lived in the flood path. Every number on the page is read from a sourced facts file, and every limit is stated.</p>
-
-  <div class="webmap-grid">
-    <a class="webmap" href="https://armariyajabeen-commits.github.io/indus-flood-2022/" target="_blank" rel="noopener">
-      <div class="webmap-img"><img src="img/indus-relief.jpg" alt="Terrain relief of the Indus basin, Pakistan" loading="lazy"></div>
-      <div class="webmap-body">
-        <p class="r-meta">Pakistan · 2022 · Live site ↗</p>
-        <h3>When the Indus rose</h3>
-        <p>Satellite‑detected floodwater (UNOSAT / VIIRS), WorldPop population, OpenStreetMap buildings and 2017 tehsil census, with modelled 1‑in‑10, 100 and 500‑year river‑flood scenarios.</p>
-        <p class="figure-line"><strong>≈ 33.2 million</strong> modelled residents within the observed 2022 flood extent (86,641 km²).</p>
-        <p class="caveat">A first pass nobody has checked on the ground; cloud, tree cover or dense housing can hide water.</p>
-      </div>
-    </a>
-    <a class="webmap" href="https://armariyajabeen-commits.github.io/limburg-flood-2021/" target="_blank" rel="noopener">
-      <div class="webmap-img"><img src="img/limburg-relief.jpg" alt="Terrain relief of South Limburg, Netherlands" loading="lazy"></div>
-      <div class="webmap-body">
-        <p class="r-meta">Netherlands · 2021 · Live site ↗</p>
-        <h3>Who lived in the flood path, Limburg</h3>
-        <p>CBS 100 m population grid, BAG buildings, the 4TU observed flood extent and national dike‑breach scenarios (1‑in‑10 to 1‑in‑10,000 years), with AHN4 terrain, land use and soil.</p>
-        <p class="figure-line"><strong>6,535</strong> residents in 100 m cells inside the observed extent, of 282,760 in the study area.</p>
-        <p class="caveat">The observed extent is preliminary and partly modelled; 2021 buildings are reconstructed from today’s BAG.</p>
-      </div>
-    </a>
-  </div>
-  <p class="code-links">Source code:
-    <a href="https://github.com/armariyajabeen-commits/indus-flood-2022" target="_blank" rel="noopener">indus-flood-2022</a> ·
-    <a href="https://github.com/armariyajabeen-commits/limburg-flood-2021" target="_blank" rel="noopener">limburg-flood-2021</a> ·
-    <a href="https://github.com/armariyajabeen-commits/hhi-atlas" target="_blank" rel="noopener">hhi-atlas</a>
-  </p>
-</section>
-
-<!-- ============ SHEET 03 — MAP PLATES ============ -->
-<section class="sheet" id="plates">
-  <div class="sheet-label"><span>SHEET 03</span><span>GIS MAP PLATES</span><span>QGIS · PYTHON · 2026</span></div>
-  <h2 class="sheet-title">Map plates</h2>
-  <p class="intro">Seven reproducible spatial studies. Each one starts from a research question, runs on open data through a scripted QGIS/Python pipeline, and reports associations only — with provenance, thresholds and limits documented. Click a plate to see the full board.</p>
-
-  <div class="plates">
-
-    <article class="plate plate--wide">
-      <button class="plate-img" data-full="img/p01-board.jpg" aria-label="Open full board: Pakistan Flood Atlas"><img src="img/p01-board-sm.jpg" alt="Pakistan Flood Atlas master board" loading="lazy"></button>
-      <div class="plate-body">
-        <p class="plate-no">P01 · Pakistan, 2022</p>
-        <h3>Where the 2022 flood met the settled ground</h3>
-        <p class="q">Where did the mapped 2022 flood extent coincide with buildings, people and roads in the Larkana–Shikarpur–Jacobabad corridor (13,092 km²)?</p>
-        <p class="data">Sentinel‑1 flood extent (TU Wien, 14 dates) · Microsoft building footprints · WorldPop 2020 · OSM roads · Copernicus GLO‑30</p>
-        <ul class="findings">
-          <li><b>7,884 km²</b> detected flood — 67.7% of observable ground</li>
-          <li><b>74,564</b> mapped buildings intersect detected flood (a floor)</li>
-          <li><b>90.2%</b> of modelled population in 1 km cells ≥10% flooded</li>
-          <li><b>39%</b> of buildings sit on ground the satellite never observed — the largest evidence gap lies under the settlement</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="plate">
-      <button class="plate-img" data-full="img/p02-board.jpg" aria-label="Open full board: Thermal Athens"><img src="img/p02-board-sm.jpg" alt="Thermal Athens master board" loading="lazy"></button>
-      <div class="plate-body">
-        <p class="plate-no">P02 · Athens, Greece</p>
-        <h3>Thermal Athens</h3>
-        <p class="q">How does summer land‑surface temperature relate to built intensity, vegetation and population across Attica?</p>
-        <p class="data">Satellite land‑surface temperature (summer median) · built intensity · vegetation · population</p>
-        <p class="note">Seven sequential analytical states, from base city to final overlay of the hottest areas.</p>
-      </div>
-    </article>
-
-    <article class="plate">
-      <button class="plate-img" data-full="img/p03-board.jpg" aria-label="Open full board: Dhaka urban expansion"><img src="img/p03-board-sm.jpg" alt="Dhaka urban expansion master board" loading="lazy"></button>
-      <div class="plate-body">
-        <p class="plate-no">P03 · Dhaka, Bangladesh</p>
-        <h3>Dhaka — the city leans north</h3>
-        <p class="q">How has rapid urban expansion (2000–2020) met land that is wet, low‑lying or both?</p>
-        <p class="data">GHS‑BUILT‑S R2023A · JRC Global Surface Water · SRTM</p>
-        <ul class="findings">
-          <li><b>+125 km²</b> (+51%) built footprint</li>
-          <li><b>64%</b> of growth to the north and north‑west</li>
-          <li><b>11%</b> of new footprint on constrained land</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="plate plate--wide plate--landscape">
-      <button class="plate-img" data-full="img/p04-board.jpg" aria-label="Open full board: Terrain, Settled"><img src="img/p04-board-sm.jpg" alt="Terrain, Settled master board comparing Hunza and Valais" loading="lazy"></button>
-      <div class="plate-body">
-        <p class="plate-no">P04 · Hunza–Gojal, Pakistan &amp; Valais, Switzerland</p>
-        <h3>Terrain, Settled</h3>
-        <p class="q">How does terrain constrain settlement and infrastructure in a mountain valley? Two identical 36 × 36 km windows, one scale.</p>
-        <p class="data">Copernicus GLO‑30 · OpenStreetMap buildings, roads, rivers, glaciers, peaks</p>
-        <table class="mini">
-          <thead><tr><th></th><th>Hunza</th><th>Valais</th></tr></thead>
-          <tbody>
-            <tr><td>Area steeper than 35°</td><td>52.2%</td><td>29.0%</td></tr>
-            <tr><td>Buildings on slopes &lt; 15°</td><td>75.0%</td><td>55.5%</td></tr>
-            <tr><td>Buildings near river level</td><td>21.3%</td><td>49.9%</td></tr>
-            <tr><td>Valley‑floor width</td><td>960 m</td><td>2,430 m</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
-
-    <article class="plate">
-      <button class="plate-img" data-full="img/p05-board.jpg" aria-label="Open full board: Cheap rent, far from work"><img src="img/p05-board-sm.jpg" alt="Housing affordability and job access board" loading="lazy"></button>
-      <div class="plate-body">
-        <p class="plate-no">P05 · Chicago · Los Angeles · Philadelphia</p>
-        <h3>Cheap rent, far from work?</h3>
-        <p class="q">Where is housing affordability spatially disconnected from access to jobs?</p>
-        <p class="data">ACS 2018–22 · LEHD LODES 2021 · TIGER/Line</p>
-        <ul class="findings">
-          <li>Rent burden × job access: ρ = <b>−0.28 / −0.15 / −0.13</b></li>
-          <li><b>14.5–17.2%</b> of residents in high‑burden, low‑access tracts</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="plate">
-      <button class="plate-img" data-full="img/p06-board.jpg" aria-label="Open full board: Walking to Care"><img src="img/p06-board-sm.jpg" alt="Walking to Care master board, Barcelona and Lahore" loading="lazy"></button>
-      <div class="plate-body">
-        <p class="plate-no">P06 · Barcelona &amp; Lahore</p>
-        <h3>Walking to Care</h3>
-        <p class="q">Which residents lie beyond a 15 or 30‑minute walk to a hospital or clinic?</p>
-        <p class="data">OpenStreetMap street network &amp; facilities · WorldPop 2020 · NetworkX multi‑source Dijkstra</p>
-        <ul class="findings">
-          <li>Within 15 min: <b>86%</b> Barcelona vs <b>57%</b> Lahore</li>
-          <li>Beyond 30 min: <b>108k</b> vs <b>455k</b> residents</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="plate">
-      <button class="plate-img" data-full="img/venice-board.jpg" aria-label="Open full board: Venice, Layer by Layer"><img src="img/venice-board-sm.jpg" alt="Venice Layer by Layer exploded-layer poster" loading="lazy"></button>
-      <div class="plate-body">
-        <p class="plate-no">P07 · Venice, Italy</p>
-        <h3>Venice, Layer by Layer</h3>
-        <p class="q">Water, movement, infrastructure and the historic core, drawn as an exploded axonometric of stacked layers.</p>
-        <p class="data">Landmarks · buildings · bridges · roads · paths · green space · water</p>
-        <p class="note">An architectural way of reading a city: the stack makes relationships between layers visible at a glance.</p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- ============ SHEET 04 — PRACTICE ============ -->
-<section class="sheet" id="practice">
-  <div class="sheet-label"><span>SHEET 04</span><span>ARCHITECTURE · TEACHING · EDUCATION</span><span>2016 — PRESENT</span></div>
-  <h2 class="sheet-title">Architecture &amp; practice</h2>
-
-  <div class="practice-grid">
-    <div>
-      <h3 class="col-head">Experience</h3>
-      <ol class="timeline">
-        <li><span class="t-date">2024 — now</span><div><h4>Lecturer</h4><p class="t-org">University of the Punjab, Lahore</p><p>Architectural design, theory, research methods and digital representation. Supervises undergraduate theses; brings climate‑aware, evidence‑based design into the studio.</p></div></li>
-        <li><span class="t-date">2022 — now</span><div><h4>Operations Manager / Architectural Designer</h4><p class="t-org">Aura Design Studio, Lahore</p><p>Project workflows, documentation, quality control and multidisciplinary coordination. As team lead (2022–25), led 15+ international interior‑architecture projects and cut documentation errors by about 40%.</p></div></li>
-        <li><span class="t-date">2023 — 2024</span><div><h4>Teaching Assistant</h4><p class="t-org">NUST, Islamabad</p><p>Final‑year studios in Professional Practice, Ethics and Thesis Research; mentored 30+ students.</p></div></li>
-        <li><span class="t-date">2022 — 2023</span><div><h4>Course Instructor</h4><p class="t-org">Arch Conceito</p><p>Trained 50+ students in SketchUp and Enscape; 10+ modules and 30+ tutorial videos.</p></div></li>
-        <li><span class="t-date">2021 — 2022</span><div><h4>Project Architect</h4><p class="t-org">AXIS Communication, Lahore</p><p>Residential and commercial projects from concept to implementation: drawings, BIM, visualisation and site coordination.</p></div></li>
-        <li><span class="t-date">2022 — now</span><div><h4>Founder</h4><p class="t-org">Undercooked Architect</p><p>Workshops on architectural software, visualisation, diagramming and design communication.</p></div></li>
-      </ol>
+    <div class="cols">
+      <p>This repository holds the working record of an architect who moved from designing shelter after floods to asking what our maps, datasets and models can — and cannot — say about the people who live with flood risk. Each item is catalogued by place, source and evidential status.</p>
+      <p>The artifacts below are fragments drawn from fieldwork, spatial analysis and experiments with human-centred AI. Drag them, shuffle them, or select any item to read its label. Where evidence runs out, the record says so: <span class="hl">unobserved, unsupported, or unanswerable</span> are kept as first-class entries.</p>
     </div>
-    <div>
-      <h3 class="col-head">Education</h3>
-      <ol class="timeline">
-        <li><span class="t-date">2023 — 2024</span><div><h4>Master of Architecture — Advanced Architectural Design</h4><p class="t-org">National University of Sciences and Technology (NUST)</p><p>CGPA 3.69 / 4.00 · Graduated with Distinction · Dean’s Honor List</p></div></li>
-        <li><span class="t-date">2016 — 2021</span><div><h4>Bachelor of Architecture</h4><p class="t-org">College of Art and Design, University of the Punjab</p><p>CGPA 3.55 / 4.00 · Graduated with Distinction · Thesis: <em>ZOOSCAPE — transformation of the zoological garden, suburban Lahore</em></p></div></li>
-      </ol>
+  </div>
 
-      <h3 class="col-head">Recognition</h3>
-      <ul class="awards">
-        <li>Finalist — PIEDRR 2024, National Disaster Management Authority</li>
-        <li>Winner — Art of Climate Illustration Competition, Allianz Global Investors</li>
-        <li>Showcased project — Punjab Affordable Housing Program</li>
-        <li>Jury member — INSPIRELI Global Architecture Awards</li>
-        <li>Amal Career Prep Fellowship — selected from 6,100+ applicants</li>
-        <li>Merit scholarships — PEEF (M.Arch) and HEC (B.Arch)</li>
-      </ul>
+  <div class="pile-stage wrap">
+    <div class="pile" id="heroPile" data-pile>
+      <!-- blue library card -->
+      <article class="art art-library" style="--x:3%;--y:10%;--r:-7deg;--w:min(250px,42vw)" data-title="Education Register" data-text="Master of Architecture, NUST (2024, distinction, CGPA 3.69). Bachelor of Architecture, University of the Punjab (2021, distinction). Registered architect, PCATP." data-year="2016 — 2024" data-link="#timeline" data-cta="Open timeline">
+        <p class="lib-head">REGISTER OF STUDY</p>
+        <p class="lib-sub">THE STUDENT SHOWN BELOW IS ENTERED<br>ON THE ROLL OF DISTINCTION</p>
+        <ul class="stamps">
+          <li><span>SEP 2024</span> M.ARCH · NUST</li>
+          <li><span>AUG 2021</span> B.ARCH · PU</li>
+          <li><span>2021</span> PCATP · REG.</li>
+        </ul>
+      </article>
+
+      <!-- manila folder -->
+      <article class="art art-folder" style="--x:0%;--y:42%;--r:4deg;--w:min(230px,40vw)" data-title="Field File — Rajanpur" data-text="Master’s thesis: mixed-methods study of post-flood transitional shelter. Household surveys with community and stakeholder perspectives on privacy, comfort, cultural fit, durability and livelihoods." data-year="2023 — 2024" data-link="#research" data-cta="Read research">
+        <div class="tab">FIELD FILE</div>
+        <p class="folder-body">RAJANPUR<br>PUNJAB, PK<br><br>Transitional<br>shelter after<br>rural flooding</p>
+        <div class="seal" aria-hidden="true"><span>NUST<br>2024</span></div>
+      </article>
+
+      <!-- graph paper -->
+      <article class="art art-graph" style="--x:17%;--y:47%;--r:-2deg;--w:min(300px,50vw)" data-title="Urban Footprint, Dhaka" data-text="Built footprint grew from 244 to 369 km² between 2000 and 2020 (+51%). 64% of the growth leans north and north-west; 11% of new footprint lies on wet or low-lying land." data-year="Plate P03" data-link="#collections" data-cta="View plate" data-plate="p03">
+        <p class="g-head">HISTORICAL MEASUREMENT — BUILT FOOTPRINT, km²</p>
+        <svg viewBox="0 0 260 110" class="g-svg" aria-hidden="true">
+          <polyline points="10,92 70,80 130,52 190,33 250,30" />
+          <g><circle cx="10" cy="92" r="3"/><circle cx="70" cy="80" r="3"/><circle cx="130" cy="52" r="3"/><circle cx="190" cy="33" r="3"/><circle cx="250" cy="30" r="3"/></g>
+          <text x="10" y="106">2000</text><text x="118" y="106">2010</text><text x="226" y="106">2020</text>
+          <text x="16" y="86">244</text><text x="222" y="24">369</text>
+        </svg>
+        <p class="g-foot">DHAKA · GHS-BUILT-S · JRC GSW · SRTM</p>
+      </article>
+
+      <!-- photo print: flood atlas -->
+      <article class="art art-photo" style="--x:33%;--y:6%;--r:1.5deg;--w:min(330px,56vw)" data-title="Pakistan Flood Atlas" data-text="Where the 2022 flood met the settled ground: 7,884 km² detected flood, 74,564 mapped buildings intersecting it, and 39% of buildings on ground the satellite never observed." data-year="Plate P01 · 2022" data-link="#collections" data-cta="View plate" data-plate="p01">
+        <img src="img/p01-detail-sm.jpg" alt="Map of buildings and roads by 2022 flood state, southern Pakistan" draggable="false">
+        <p class="cap">F07 — buildings &amp; roads by flood state</p>
+      </article>
+
+      <!-- teal instrument -->
+      <article class="art art-device" style="--x:62%;--y:44%;--r:3deg;--w:min(290px,50vw)" data-title="Walking to Care" data-text="Share of residents within a 15-minute walk of a hospital or clinic, modelled on the OpenStreetMap street network: 86% in Barcelona, 57% in Lahore." data-year="Plate P06" data-link="#collections" data-cta="View plate" data-plate="p06">
+        <div class="dev-top"><span class="dev-led"></span><span>ACCESS METER · 15 MIN</span></div>
+        <div class="gauges">
+          <div class="gauge" style="--v:86"><div class="g-arc"></div><b>86%</b><span>BCN</span></div>
+          <div class="gauge" style="--v:57"><div class="g-arc"></div><b>57%</b><span>LHE</span></div>
+        </div>
+        <div class="knobs" aria-hidden="true"><i class="k-red"></i><i class="k-yel"></i><i></i></div>
+        <p class="dev-foot">NETWORKX · DIJKSTRA · 4.8 km/h</p>
+      </article>
+
+      <!-- photo print: terrain -->
+      <article class="art art-photo art-photo--bw" style="--x:66%;--y:4%;--r:-4deg;--w:min(300px,50vw)" data-title="Terrain, Settled" data-text="Hunza–Gojal and Valais in identical 36 × 36 km windows: 52% vs 29% of land steeper than 35°, yet 75% vs 56% of buildings sit on slopes under 15°." data-year="Plate P04" data-link="#collections" data-cta="View plate" data-plate="p04">
+        <img src="img/p04-detail-sm.jpg" alt="Valley detail of mountain settlement and terrain" draggable="false">
+        <p class="cap">V3 — valley details, Hunza / Valais</p>
+      </article>
+
+      <!-- pink HHI slip -->
+      <article class="art art-slip" style="--x:44%;--y:52%;--r:-5deg;--w:min(240px,44vw)" data-title="HHI — Evidence Status" data-text="Human–Hydro Inference: an AI that must label every claim by what the evidence supports. ‘The evidence does not establish this’ counts as a correct answer." data-year="2025 — present" data-link="#research" data-cta="Try the classifier">
+        <p class="slip-head">EVIDENCE STATUS SLIP</p>
+        <ul class="checks">
+          <li><i class="on"></i>Directly supported</li>
+          <li><i class="on"></i>Reasonable derivation</li>
+          <li><i></i>Structurally unanswerable</li>
+          <li><i></i>Unsupported premise</li>
+        </ul>
+        <p class="slip-foot">HHI · No. 0020 · VALIDATOR</p>
+      </article>
+    </div>
+
+    <!-- info tag -->
+    <div class="tag" id="pileTag" role="dialog" aria-live="polite" hidden>
+      <button class="tag-x" aria-label="Close label">×</button>
+      <p class="tag-title"></p>
+      <p class="tag-text"></p>
+      <p class="tag-year"></p>
+      <div class="tag-row"><a class="btn-yellow" href="#">Open</a><span class="red-dot" aria-hidden="true"></span></div>
+    </div>
+
+    <div class="pile-ctrl">
+      <button class="chip" data-shuffle="heroPile">↻ Shuffle</button>
+      <span class="hint">Drag items · select to read the label</span>
     </div>
   </div>
 </section>
 
-<!-- ============ SHEET 05 — METHODS ============ -->
-<section class="sheet" id="methods">
-  <div class="sheet-label"><span>SHEET 05</span><span>METHODS &amp; TOOLS</span><span>LEGEND</span></div>
-  <h2 class="sheet-title">Methods &amp; tools</h2>
-  <div class="legend-grid">
-    <div class="legend"><h3><i class="sw sw-1"></i>Research design</h3><p>Mixed methods · surveys &amp; interviews · household research · case studies · secondary‑data analysis</p></div>
-    <div class="legend"><h3><i class="sw sw-2"></i>Spatial analysis</h3><p>GIS · network &amp; accessibility analysis · terrain analysis · remote sensing · flood hazard &amp; exposure mapping</p></div>
-    <div class="legend"><h3><i class="sw sw-3"></i>People &amp; planning</h3><p>Participatory research · stakeholder engagement · vulnerability narratives · climate adaptation · disaster recovery</p></div>
-    <div class="legend"><h3><i class="sw sw-4"></i>AI &amp; computation</h3><p>Human‑centred AI · evidence‑constrained interpretation · epistemic restraint · bias identification</p></div>
+<!-- ================= RESEARCH ================= -->
+<section class="section" id="research">
+  <div class="wrap">
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 01 <i>/</i> Research</p>
+    <h2 class="display reveal">Reading vulnerability <em>across evidence</em></h2>
+    <div class="cols reveal">
+      <p>My research asks what an AI-supported planning system should do when spatial datasets, institutional knowledge and community knowledge give different accounts of climate risk. Flooding is the case; the contribution is about how evidence, uncertainty and human judgement work together.</p>
+      <p>It began in Rajanpur, where two households exposed to the same flood followed very different recovery paths. It continued through GIS, where data can make vulnerability visible while hiding its uncertainties — and now through HHI, an experiment in teaching AI <span class="hl">epistemic restraint</span>.</p>
+    </div>
+
+    <div class="hhi reveal">
+      <div class="hhi-left">
+        <p class="label">Interactive · HHI evidence classifier</p>
+        <h3 class="h3">Human–Hydro Inference</h3>
+        <p class="body">HHI separates deterministic spatial computation from model interpretation, then checks every AI claim against an independent validator with twenty named failure modes. Pick a status to see how a claim about the 2022 floods would be filed.</p>
+        <div class="status-btns" role="tablist" aria-label="Evidence status">
+          <button role="tab" aria-selected="true" data-status="0"><i style="--c:var(--green)"></i>Directly supported</button>
+          <button role="tab" aria-selected="false" data-status="1"><i style="--c:var(--blue)"></i>Reasonable derivation</button>
+          <button role="tab" aria-selected="false" data-status="2"><i style="--c:var(--yellow)"></i>Structurally unanswerable</button>
+          <button role="tab" aria-selected="false" data-status="3"><i style="--c:var(--red)"></i>Unsupported premise</button>
+        </div>
+        <a class="link" href="https://github.com/armariyajabeen-commits/hhi-atlas" target="_blank" rel="noopener">HHI Atlas — code &amp; build reports ↗</a>
+      </div>
+      <div class="hhi-card" id="hhiCard" aria-live="polite">
+        <p class="hc-no">CLAIM No. <span>0412</span></p>
+        <p class="hc-claim"></p>
+        <div class="hc-status"><i></i><span></span></div>
+        <p class="hc-why"></p>
+        <p class="hc-foot">ILLUSTRATIVE CLAIMS · VALIDATOR IS RULE-BASED, NOT A SECOND LLM</p>
+      </div>
+    </div>
+
+    <div class="r-strip reveal">
+      <article><p class="label">Master’s thesis · NUST · 2023–24</p><h3 class="h4">Flood recovery &amp; transitional shelter</h3><p class="body">Understanding prototype structures for transitional shelter for rural flooding — a case study of Rajanpur, combining household surveys with community and stakeholder perspectives.</p></article>
+      <article><p class="label">Spatial research · 2024 — now</p><h3 class="h4">Reproducible GIS workflows</h3><p class="body">QGIS and Python pipelines joining terrain, population, buildings, networks and remote sensing — with provenance, thresholds and limits documented on every plate.</p></article>
+      <article><p class="label">Interests</p><h3 class="h4">Where I am heading</h3><p class="body">Climate risk · urban vulnerability · planning under uncertainty · participatory research · human-centred AI · bias identification.</p></article>
+    </div>
   </div>
-  <div class="tools">
-    <div><span>GIS / code</span>QGIS · ArcGIS · Python · NetworkX · GDAL · MapLibre · D3</div>
-    <div><span>Design</span>Rhino · Grasshopper · AutoCAD · BIM · SketchUp · Enscape · Lumion</div>
-    <div><span>Analysis</span>R · NVivo · Mendeley</div>
-    <div><span>Visual</span>Photoshop · Illustrator · InDesign</div>
-    <div><span>Languages</span>English · Urdu · Punjabi · Pashto (native)</div>
-  </div>
-  <p class="courses"><span>Selected courses —</span> GIS, Mapping &amp; Spatial Analysis (Toronto / UC Davis) · Qualitative Methods &amp; Statistics (Amsterdam) · Studying Cities (Erasmus Rotterdam) · Sustainable Cities (Johns Hopkins) · Climate Change Mitigation in Developing Countries (Cape Town) · Data Visualization (Ball State)</p>
 </section>
 
-<!-- ============ SHEET 06 — CONTACT ============ -->
-<section class="sheet contact" id="contact">
-  <div class="sheet-label"><span>SHEET 06</span><span>CONTACT</span><span>OPEN TO PhD POSITIONS</span></div>
-  <h2 class="sheet-title">Let’s talk</h2>
-  <p class="intro">I am looking for PhD opportunities in climate‑risk planning, spatial evidence and human‑centred AI. References are available on request.</p>
-  <ul class="contact-links">
-    <li><a href="mailto:ar.mariyajabeen@gmail.com"><span>Email</span>ar.mariyajabeen@gmail.com</a></li>
-    <li><a href="https://www.linkedin.com/in/maria-jabeen-khattak/" target="_blank" rel="noopener"><span>LinkedIn</span>maria-jabeen-khattak</a></li>
-    <li><a href="https://github.com/armariyajabeen-commits" target="_blank" rel="noopener"><span>GitHub</span>armariyajabeen-commits</a></li>
-  </ul>
+<!-- ================= WEB MAP INSTRUMENTS ================= -->
+<section class="section" id="instruments">
+  <div class="wrap">
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 02 <i>/</i> Instruments</p>
+    <h2 class="display reveal">Live <em>instruments</em></h2>
+    <div class="cols reveal">
+      <p>Two interactive research sites built on one verified data chain. Drop two circles on the map and compare who lived in the flood path.</p>
+      <p>Every number on these pages is read from a sourced facts file, and every limit of the data is stated beside the result.</p>
+    </div>
+    <div class="inst-grid">
+      <a class="inst tilt reveal" href="https://armariyajabeen-commits.github.io/indus-flood-2022/" target="_blank" rel="noopener">
+        <div class="inst-img inst-img--red"><img src="img/indus-relief.jpg" alt="Terrain relief of the Indus basin" loading="lazy"></div>
+        <div class="inst-body">
+          <p class="label">Pakistan · 2022 · UNOSAT / VIIRS · WorldPop · OSM</p>
+          <h3 class="h3">When the Indus rose</h3>
+          <p class="big"><b>≈ 33.2 M</b> modelled residents inside the observed 2022 flood extent (86,641 km²).</p>
+          <p class="limit">Limit — a first pass nobody has checked on the ground.</p>
+          <span class="btn-yellow">Open map ↗</span>
+        </div>
+      </a>
+      <a class="inst tilt reveal" href="https://armariyajabeen-commits.github.io/limburg-flood-2021/" target="_blank" rel="noopener">
+        <div class="inst-img inst-img--teal"><img src="img/limburg-relief.jpg" alt="Terrain relief of South Limburg" loading="lazy"></div>
+        <div class="inst-body">
+          <p class="label">Netherlands · 2021 · CBS · BAG · 4TU · AHN4</p>
+          <h3 class="h3">Who lived in the flood path</h3>
+          <p class="big"><b>6,535</b> residents in 100 m cells inside the observed extent, of 282,760 in the study area.</p>
+          <p class="limit">Limit — observed extent is preliminary and partly modelled.</p>
+          <span class="btn-yellow">Open map ↗</span>
+        </div>
+      </a>
+    </div>
+    <p class="src reveal">Source code — <a href="https://github.com/armariyajabeen-commits/indus-flood-2022" target="_blank" rel="noopener">indus-flood-2022</a> · <a href="https://github.com/armariyajabeen-commits/limburg-flood-2021" target="_blank" rel="noopener">limburg-flood-2021</a> · <a href="https://github.com/armariyajabeen-commits/hhi-atlas" target="_blank" rel="noopener">hhi-atlas</a></p>
+  </div>
+</section>
+
+<!-- ================= COLLECTIONS ================= -->
+<section class="section" id="collections">
+  <div class="wrap">
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 03 <i>/</i> Collections</p>
+    <div class="coll-head reveal">
+      <h2 class="display">Map <em>plates</em></h2>
+      <div class="coll-tools">
+        <div class="filters" role="group" aria-label="Filter plates">
+          <button class="chip is-on" data-filter="all">All</button>
+          <button class="chip" data-filter="flood">Flood</button>
+          <button class="chip" data-filter="urban">Urban</button>
+          <button class="chip" data-filter="access">Access</button>
+          <button class="chip" data-filter="terrain">Terrain</button>
+        </div>
+        <div class="views" role="group" aria-label="View">
+          <button class="view-btn is-on" data-view="grid" aria-label="Index view" title="Index view"><svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg></button>
+          <button class="view-btn" data-view="pile" aria-label="Pile view" title="Pile view"><svg viewBox="0 0 16 16"><rect x="3" y="1" width="10" height="8" transform="rotate(-8 8 5)"/><rect x="2" y="6" width="11" height="9"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <p class="body reveal intro-line">Seven reproducible spatial studies on open data, scripted in QGIS and Python. Each reports associations only, with provenance and limits documented. Select a plate to open its full board.</p>
+
+    <div class="plates is-grid" id="plates"></div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section class="section" id="timeline">
+  <div class="wrap">
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 04 <i>/</i> Timeline</p>
+    <h2 class="display reveal">Practice &amp; <em>teaching</em></h2>
+    <p class="body reveal intro-line">Architecture, teaching and education, filed as index cards. Drag sideways to move through the drawer.</p>
+  </div>
+  <div class="drawer" id="drawer" tabindex="0" aria-label="Timeline cards, scroll horizontally">
+    <div class="drawer-track">
+      <article class="icard"><p class="ic-date">NOV 2024 — NOW</p><h3>Lecturer</h3><p class="ic-org">University of the Punjab, Lahore</p><p>Design, theory, research methods and digital representation. Supervises undergraduate theses and brings climate-aware, evidence-based design into studio.</p><span class="ic-stamp">TEACHING</span></article>
+      <article class="icard icard--blue"><p class="ic-date">NOV 2022 — NOW</p><h3>Operations Manager / Designer</h3><p class="ic-org">Aura Design Studio, Lahore</p><p>Workflows, documentation and quality control. As team lead (2022–25), led 15+ international interior-architecture projects and cut documentation errors by about 40%.</p><span class="ic-stamp">PRACTICE</span></article>
+      <article class="icard icard--manila"><p class="ic-date">JAN 2023 — SEP 2024</p><h3>Master of Architecture</h3><p class="ic-org">NUST, Islamabad</p><p>Advanced Architectural Design. CGPA 3.69 / 4.00, distinction, Dean’s Honor List. Thesis on transitional shelter after rural flooding, Rajanpur.</p><span class="ic-stamp">EDUCATION</span></article>
+      <article class="icard"><p class="ic-date">OCT 2023 — MAR 2024</p><h3>Teaching Assistant</h3><p class="ic-org">NUST, Islamabad</p><p>Final-year studios in Professional Practice, Ethics and Thesis Research. Mentored 30+ students.</p><span class="ic-stamp">TEACHING</span></article>
+      <article class="icard icard--pink"><p class="ic-date">JUN 2022 — AUG 2023</p><h3>Course Instructor</h3><p class="ic-org">Arch Conceito</p><p>Trained 50+ students in SketchUp and Enscape. 10+ modules, 30+ tutorial videos, 100+ guided projects.</p><span class="ic-stamp">TEACHING</span></article>
+      <article class="icard icard--blue"><p class="ic-date">DEC 2021 — DEC 2022</p><h3>Project Architect</h3><p class="ic-org">AXIS Communication, Lahore</p><p>Residential and commercial projects from concept to implementation: drawings, BIM, visualisation and site coordination.</p><span class="ic-stamp">PRACTICE</span></article>
+      <article class="icard icard--manila"><p class="ic-date">AUG 2016 — AUG 2021</p><h3>Bachelor of Architecture</h3><p class="ic-org">College of Art &amp; Design, University of the Punjab</p><p>CGPA 3.55 / 4.00, distinction. Thesis: ZOOSCAPE — transforming the zoological garden in suburban Lahore.</p><span class="ic-stamp">EDUCATION</span></article>
+      <article class="icard icard--dark"><p class="ic-date">RECOGNITION</p><h3>Awards &amp; roles</h3><ul><li>Finalist — PIEDRR 2024, NDMA</li><li>Winner — Art of Climate Illustration, Allianz GI</li><li>Showcased — Punjab Affordable Housing Program</li><li>Jury — INSPIRELI Global Architecture Awards</li><li>Amal Career Prep Fellow (1 of 6,100+ applicants)</li><li>Founder — Undercooked Architect</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METHODS ================= -->
+<section class="section" id="methods">
+  <div class="wrap">
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 05 <i>/</i> Methods</p>
+    <h2 class="display reveal">Methods &amp; <em>tools</em></h2>
+    <div class="legend reveal">
+      <div><p class="label"><i style="--c:#c9b98f"></i>Research design</p><p class="body">Mixed methods · surveys &amp; interviews · household research · case studies · secondary-data analysis</p></div>
+      <div><p class="label"><i style="--c:var(--teal)"></i>Spatial analysis</p><p class="body">GIS · network &amp; accessibility · terrain · remote sensing · flood hazard &amp; exposure mapping</p></div>
+      <div><p class="label"><i style="--c:var(--pink)"></i>People &amp; planning</p><p class="body">Participatory research · stakeholder engagement · vulnerability narratives · adaptation · recovery</p></div>
+      <div><p class="label"><i style="--c:var(--blue)"></i>AI &amp; computation</p><p class="body">Human-centred AI · evidence-constrained interpretation · epistemic restraint · bias identification</p></div>
+    </div>
+    <div class="tools reveal">
+      <div><span>GIS / code</span>QGIS · ArcGIS · Python · NetworkX · GDAL · MapLibre · D3</div>
+      <div><span>Design</span>Rhino · Grasshopper · AutoCAD · BIM · SketchUp · Enscape · Lumion</div>
+      <div><span>Analysis</span>R · NVivo · Mendeley</div>
+      <div><span>Visual</span>Photoshop · Illustrator · InDesign</div>
+      <div><span>Languages</span>English · Urdu · Punjabi · Pashto (native)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 06 <i>/</i> Correspondence</p>
+    <h2 class="display reveal">Open to <em>PhD positions</em></h2>
+    <p class="body reveal intro-line">In climate-risk planning, spatial evidence and human-centred AI. References are available on request.</p>
+    <ul class="contact-list reveal">
+      <li><a href="mailto:ar.mariyajabeen@gmail.com"><span>Email</span>ar.mariyajabeen@gmail.com<b>→</b></a></li>
+      <li><a href="https://www.linkedin.com/in/maria-jabeen-khattak/" target="_blank" rel="noopener"><span>LinkedIn</span>maria-jabeen-khattak<b>↗</b></a></li>
+      <li><a href="https://github.com/armariyajabeen-commits" target="_blank" rel="noopener"><span>GitHub</span>armariyajabeen-commits<b>↗</b></a></li>
+    </ul>
+  </div>
 </section>
 
 </main>
 
-<footer class="titleblock">
-  <div><span>DRAWN BY</span>Maria Jabeen</div>
-  <div><span>PROJECT</span>Research portfolio</div>
-  <div><span>LOCATION</span>Lahore, Pakistan</div>
-  <div><span>REV.</span>Oct 2026</div>
-  <div><span>SCALE</span>Not to scale</div>
+<footer class="foot">
+  <span>Archive of Evidence — Maria Jabeen</span>
+  <span>Rev. Oct 2026</span>
+  <a class="monogram monogram--sm" href="#top" aria-label="Back to top"><span>mj</span></a>
 </footer>
 
-<dialog id="lightbox" aria-label="Full map board">
-  <button class="lb-close" aria-label="Close">Close ✕</button>
-  <img alt="">
+<!-- detail viewer -->
+<dialog class="viewer" id="viewer" aria-labelledby="vTitle">
+  <div class="v-bar"><p class="crumbs" id="vCrumbs"></p><button class="chip" id="vClose">Close ×</button></div>
+  <div class="v-grid">
+    <div class="v-img"><img id="vImg" alt=""></div>
+    <div class="v-text">
+      <p class="label" id="vNo"></p>
+      <h3 class="h3" id="vTitle"></h3>
+      <p class="body" id="vQ"></p>
+      <p class="v-data" id="vData"></p>
+      <ul class="v-find" id="vFind"></ul>
+      <p class="limit" id="vLimit"></p>
+      <div class="v-nav"><button class="chip" id="vPrev">← Previous</button><button class="chip" id="vNext">Next →</button></div>
+    </div>
+  </div>
 </dialog>
 
-<script>
-const lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img');
-document.querySelectorAll('.plate-img').forEach(b=>b.addEventListener('click',()=>{
-  lbImg.src=b.dataset.full; lbImg.alt=b.querySelector('img').alt; lb.showModal();
-}));
-lb.addEventListener('click',e=>{ if(e.target===lb||e.target.classList.contains('lb-close')) lb.close(); });
-</script>
+<script src="app.js"></script>
 </body>
 </html>
