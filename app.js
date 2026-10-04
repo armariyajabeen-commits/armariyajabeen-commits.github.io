@@ -100,6 +100,7 @@ function showTag(card) {
   const btn = $('.btn-yellow', tag);
   btn.textContent = card.dataset.cta || 'Open';
   btn.href = card.dataset.link || '#';
+  btn.target = /^https?:/.test(btn.href) && !card.dataset.plate ? '_blank' : '';
   btn.onclick = card.dataset.plate ? (e => { e.preventDefault(); hideTag(); openViewer(PLATES.findIndex(p => p.id === card.dataset.plate)); }) : (() => hideTag());
   tag.hidden = false;
   const s = stage.getBoundingClientRect(), c = card.getBoundingClientRect();
@@ -206,30 +207,6 @@ $('#vPrev').addEventListener('click', () => step(-1));
 $('#vNext').addEventListener('click', () => step(1));
 viewer.addEventListener('click', e => { if (e.target === viewer) viewer.close(); });
 viewer.addEventListener('keydown', e => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
-
-/* ---------- HHI classifier ---------- */
-const HHI = [
-  { claim:'NDMA reports record flood-damaged housing in Sindh in 2022.', label:'Directly supported', color:'#2f8a4f',
-    why:'The figure appears as an observed value in the NDMA/PDMA provincial reports held in the evidence store.' },
-  { claim:'Damaged houses per 1,000 residents in Sujawal, from reported damage and census population.', label:'Reasonable derivation', color:'#2f5be6',
-    why:'A deterministic calculation from two registered values (damage counts and census population) — computed by code, never by the language model.' },
-  { claim:'Women in Rajanpur recovered more slowly than men after the flood.', label:'Structurally unanswerable', color:'#a07d00',
-    why:'No sex-disaggregated recovery data exist in the evidence. Answering would need qualitative, participatory fieldwork.' },
-  { claim:'Since relief camps were empty by October, displacement had ended.', label:'Unsupported premise', color:'#c0262a',
-    why:'Conflates camp headcounts with confirmed displacement — one of the twenty named failure modes the validator screens for.' }
-];
-const card = $('#hhiCard');
-function setStatus(i) {
-  $$('.status-btns button').forEach((b, k) => b.setAttribute('aria-selected', k === i));
-  const h = HHI[i];
-  $('.hc-no span', card).textContent = String(412 + i * 37).padStart(4, '0');
-  $('.hc-claim', card).textContent = '“' + h.claim + '”';
-  const st = $('.hc-status', card); st.style.color = h.color; $('span', st).textContent = h.label;
-  $('.hc-why', card).textContent = h.why;
-  card.classList.remove('flip'); void card.offsetWidth; card.classList.add('flip');
-}
-$$('.status-btns button').forEach((b, i) => b.addEventListener('click', () => setStatus(i)));
-setStatus(0);
 
 /* ---------- timeline drawer: drag to scroll ---------- */
 const drawer = $('#drawer');

@@ -21,7 +21,6 @@
 <!-- ================= NAV ================= -->
 <header class="nav">
   <nav class="nav-left" aria-label="Sections">
-    <a href="#research">Research</a>
     <a href="#instruments">Web maps</a>
     <a href="#collections">Collections</a>
     <a href="#timeline">Timeline</a>
@@ -69,7 +68,7 @@
       </article>
 
       <!-- manila folder -->
-      <article class="art art-folder" style="--x:0%;--y:42%;--r:4deg;--w:min(230px,40vw)" data-title="Field File — Rajanpur" data-text="Master’s thesis: mixed-methods study of post-flood transitional shelter. Household surveys with community and stakeholder perspectives on privacy, comfort, cultural fit, durability and livelihoods." data-year="2023 — 2024" data-link="#research" data-cta="Read research">
+      <article class="art art-folder" style="--x:0%;--y:42%;--r:4deg;--w:min(230px,40vw)" data-title="Field File — Rajanpur" data-text="Master’s thesis: mixed-methods study of post-flood transitional shelter. Household surveys with community and stakeholder perspectives on privacy, comfort, cultural fit, durability and livelihoods." data-year="2023 — 2024" data-link="#timeline" data-cta="Open timeline">
         <div class="tab">FIELD FILE</div>
         <p class="folder-body">RAJANPUR<br>PUNJAB, PK<br><br>Transitional<br>shelter after<br>rural flooding</p>
         <div class="seal" aria-hidden="true"><span>NUST<br>2024</span></div>
@@ -111,7 +110,7 @@
       </article>
 
       <!-- pink HHI slip -->
-      <article class="art art-slip" style="--x:44%;--y:52%;--r:-5deg;--w:min(240px,44vw)" data-title="HHI — Evidence Status" data-text="Human–Hydro Inference: an AI that must label every claim by what the evidence supports. ‘The evidence does not establish this’ counts as a correct answer." data-year="2025 — present" data-link="#research" data-cta="Try the classifier">
+      <article class="art art-slip" style="--x:44%;--y:52%;--r:-5deg;--w:min(240px,44vw)" data-title="HHI — Evidence Status" data-text="Human–Hydro Inference: an AI that must label every claim by what the evidence supports. ‘The evidence does not establish this’ counts as a correct answer." data-year="2025 — present" data-link="https://github.com/armariyajabeen-commits/hhi-atlas" data-cta="View HHI code ↗">
         <p class="slip-head">EVIDENCE STATUS SLIP</p>
         <ul class="checks">
           <li><i class="on"></i>Directly supported</li>
@@ -135,46 +134,6 @@
     <div class="pile-ctrl">
       <button class="chip" data-shuffle="heroPile">↻ Shuffle</button>
       <span class="hint">Drag items · select to read the label</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================= RESEARCH ================= -->
-<section class="section" id="research">
-  <div class="wrap">
-    <p class="crumbs reveal">Archive <i>/</i> Drawer 01 <i>/</i> Research</p>
-    <h2 class="display reveal">Reading vulnerability <em>across evidence</em></h2>
-    <div class="cols reveal">
-      <p>My research asks what an AI-supported planning system should do when spatial datasets, institutional knowledge and community knowledge give different accounts of climate risk. Flooding is the case; the contribution is about how evidence, uncertainty and human judgement work together.</p>
-      <p>It began in Rajanpur, where two households exposed to the same flood followed very different recovery paths. It continued through GIS, where data can make vulnerability visible while hiding its uncertainties — and now through HHI, an experiment in teaching AI <span class="hl">epistemic restraint</span>.</p>
-    </div>
-
-    <div class="hhi reveal">
-      <div class="hhi-left">
-        <p class="label">Interactive · HHI evidence classifier</p>
-        <h3 class="h3">Human–Hydro Inference</h3>
-        <p class="body">HHI separates deterministic spatial computation from model interpretation, then checks every AI claim against an independent validator with twenty named failure modes. Pick a status to see how a claim about the 2022 floods would be filed.</p>
-        <div class="status-btns" role="tablist" aria-label="Evidence status">
-          <button role="tab" aria-selected="true" data-status="0"><i style="--c:var(--green)"></i>Directly supported</button>
-          <button role="tab" aria-selected="false" data-status="1"><i style="--c:var(--blue)"></i>Reasonable derivation</button>
-          <button role="tab" aria-selected="false" data-status="2"><i style="--c:var(--yellow)"></i>Structurally unanswerable</button>
-          <button role="tab" aria-selected="false" data-status="3"><i style="--c:var(--red)"></i>Unsupported premise</button>
-        </div>
-        <a class="link" href="https://github.com/armariyajabeen-commits/hhi-atlas" target="_blank" rel="noopener">HHI Atlas — code &amp; build reports ↗</a>
-      </div>
-      <div class="hhi-card" id="hhiCard" aria-live="polite">
-        <p class="hc-no">CLAIM No. <span>0412</span></p>
-        <p class="hc-claim"></p>
-        <div class="hc-status"><i></i><span></span></div>
-        <p class="hc-why"></p>
-        <p class="hc-foot">ILLUSTRATIVE CLAIMS · VALIDATOR IS RULE-BASED, NOT A SECOND LLM</p>
-      </div>
-    </div>
-
-    <div class="r-strip reveal">
-      <article><p class="label">Master’s thesis · NUST · 2023–24</p><h3 class="h4">Flood recovery &amp; transitional shelter</h3><p class="body">Understanding prototype structures for transitional shelter for rural flooding — a case study of Rajanpur, combining household surveys with community and stakeholder perspectives.</p></article>
-      <article><p class="label">Spatial research · 2024 — now</p><h3 class="h4">Reproducible GIS workflows</h3><p class="body">QGIS and Python pipelines joining terrain, population, buildings, networks and remote sensing — with provenance, thresholds and limits documented on every plate.</p></article>
-      <article><p class="label">Interests</p><h3 class="h4">Where I am heading</h3><p class="body">Climate risk · urban vulnerability · planning under uncertainty · participatory research · human-centred AI · bias identification.</p></article>
     </div>
   </div>
 </section>
