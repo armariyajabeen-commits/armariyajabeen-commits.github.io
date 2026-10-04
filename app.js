@@ -344,4 +344,49 @@ $$('[data-compare]').forEach(c => {
   if (!reduced) { let t = 0; const intro = setInterval(() => { t += .06; set(50 + Math.sin(t) * 22); if (t > Math.PI * 2) { clearInterval(intro); set(50); } }, 30);
     c.addEventListener('pointerdown', () => clearInterval(intro), { once:true }); }
 });
+
+/* ================= presentations ================= */
+const DECKS = {
+  tp:{ title:'Understanding prototype structures for transitional shelter for rural flooding',
+       sub:'M.Arch thesis presentation, NUST 2024: introduction, literature, methodology, data findings and design principles for Rajanpur.',
+       n:46, pdf:'docs/Maria-Jabeen-Thesis-Presentation.pdf',
+       ch:[[1,'Cover'],[3,'Introduction'],[7,'Literature review'],[13,'Methodology'],[19,'Data findings'],[24,'A vital need'],[30,'Universal design'],[36,'Community-centred'],[43,'Way forward']] },
+  iv:{ title:'Transitional housing for adaptive flood recovery',
+       sub:'Research talk: household preferences, institutional feedback and patterns in transitional housing, as a comparative North–South study of Punjab, Pakistan and Holmestrand, Norway.',
+       n:5, pdf:'docs/Maria-Jabeen-Research-Talk-Transitional-Housing.pdf',
+       ch:[[1,'Research aim'],[2,'Theoretical frameworks'],[3,'Methodological choices'],[4,'Analytical process']] }
+};
+let dk = 'tp', ds = 1;
+const dImg = $('#deckImg'), dStage = $('#deckStage'), dThumbs = $('#deckThumbs'), dCh = $('#deckChapters');
+const pad = n => String(n).padStart(2, '0');
+function deckLoad(k) {
+  dk = k; const d = DECKS[k];
+  $$('[data-deck]').forEach(b => b.classList.toggle('is-on', b.dataset.deck === k));
+  $('#deckTitle').textContent = d.title; $('#deckSub').textContent = d.sub;
+  $('#deckPdf').href = d.pdf; $('#deckTotal').textContent = d.n;
+  dCh.innerHTML = d.ch.map(([s, t], i) => `<button class="chip" data-s="${s}"><span>${pad(i + 1)}</span>${t}</button>`).join('');
+  $$('button', dCh).forEach(b => b.addEventListener('click', () => deckGo(+b.dataset.s)));
+  dThumbs.innerHTML = Array.from({ length:d.n }, (_, i) => `<button data-s="${i + 1}" aria-label="Slide ${i + 1}"><img src="img/deck/${k}-${pad(i + 1)}-t.jpg" alt="" loading="lazy"><span>${i + 1}</span></button>`).join('');
+  $$('button', dThumbs).forEach(b => b.addEventListener('click', () => deckGo(+b.dataset.s)));
+  ds = 0; deckGo(1);
+}
+function deckGo(s) {
+  const d = DECKS[dk]; s = Math.max(1, Math.min(d.n, s)); if (s === ds) return; ds = s;
+  swap(dImg, `img/deck/${dk}-${pad(s)}.jpg`); dImg.alt = `${d.title}, slide ${s} of ${d.n}`;
+  $('#deckNo').textContent = s;
+  let cur = 0; d.ch.forEach(([c], i) => { if (s >= c) cur = i; });
+  $$('button', dCh).forEach((b, i) => b.classList.toggle('is-on', i === cur));
+  $$('button', dThumbs).forEach((b, i) => b.classList.toggle('is-on', i + 1 === s));
+  const t = $$('button', dThumbs)[s - 1]; if (t) dThumbs.scrollTo({ left:t.offsetLeft - dThumbs.clientWidth / 2 + t.clientWidth / 2, behavior:reduced ? 'auto' : 'smooth' });
+  const nx = new Image(); nx.src = `img/deck/${dk}-${pad(Math.min(d.n, s + 1))}.jpg`;
+}
+$$('[data-deck]').forEach(b => b.addEventListener('click', () => deckLoad(b.dataset.deck)));
+$('#deckPrev').addEventListener('click', e => { e.stopPropagation(); deckGo(ds - 1); });
+$('#deckNext').addEventListener('click', e => { e.stopPropagation(); deckGo(ds + 1); });
+dStage.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { e.preventDefault(); deckGo(ds + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); deckGo(ds - 1); } });
+$('#deckFs').addEventListener('click', e => { e.stopPropagation();
+  if (document.fullscreenElement) document.exitFullscreen(); else if (dStage.requestFullscreen) dStage.requestFullscreen().then(() => dStage.focus()).catch(() => {}); });
+let dsx = null; dStage.addEventListener('touchstart', e => dsx = e.touches[0].clientX, { passive:true });
+dStage.addEventListener('touchend', e => { if (dsx === null) return; const dx = e.changedTouches[0].clientX - dsx; if (Math.abs(dx) > 40) deckGo(ds + (dx < 0 ? 1 : -1)); dsx = null; });
+deckLoad('tp');
 })();

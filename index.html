@@ -217,6 +217,32 @@
           <div class="cluster-stage"><img id="clusterImg" src="img/arch/cluster-1.jpg" alt="Shelter cluster typology"></div>
         </div>
 
+        <div class="decks" id="decks">
+          <div class="decks-head">
+            <p class="label">Interactive · presentations</p>
+            <div class="filters" role="tablist" aria-label="Choose presentation">
+              <button class="chip is-on" data-deck="tp">Thesis presentation · 46 slides</button>
+              <button class="chip" data-deck="iv">Research talk · Pakistan–Norway · 5 slides</button>
+            </div>
+          </div>
+          <div class="deck-meta">
+            <div>
+              <h4 class="h4" id="deckTitle"></h4>
+              <p class="body" id="deckSub"></p>
+            </div>
+            <a class="btn-yellow" id="deckPdf" href="#" download>↓ Download PDF</a>
+          </div>
+          <div class="deck-stage" id="deckStage" tabindex="0" aria-label="Presentation slides. Use the arrow keys to move between slides.">
+            <img id="deckImg" alt="">
+            <button class="deck-nav deck-nav--prev" id="deckPrev" aria-label="Previous slide">←</button>
+            <button class="deck-nav deck-nav--next" id="deckNext" aria-label="Next slide">→</button>
+            <span class="deck-count"><b id="deckNo">1</b> / <span id="deckTotal"></span></span>
+            <button class="deck-fs" id="deckFs" aria-label="Full screen">⤢ Full screen</button>
+          </div>
+          <div class="deck-chapters filters" id="deckChapters"></div>
+          <div class="deck-thumbs" id="deckThumbs"></div>
+        </div>
+
         <p class="label">From the thesis · select to enlarge</p>
         <div class="strip" data-gallery="thesis">
           <button data-full="img/arch/th-3.jpg" data-cap="Problem statement: Rajanpur in the 2022 flood map"><img src="img/arch/th-3-sm.jpg" alt="" loading="lazy"></button>
@@ -344,6 +370,7 @@
         <div class="strip strip--two" data-gallery="zoo">
           <button data-full="img/arch/zoo-sketch.jpg" data-cap="Hand-drawn site plan"><img src="img/arch/zoo-sketch-sm.jpg" alt="" loading="lazy"><span>Hand-drawn site plan</span></button>
           <button data-full="img/arch/zoo-board.jpg" data-cap="Zooscape thesis board"><img src="img/arch/zoo-board-sm.jpg" alt="" loading="lazy"><span>Thesis board</span></button>
+          <button data-full="img/arch/zoo-plan.jpg" data-cap="Coloured site plan"><img src="img/arch/zoo-plan-sm.jpg" alt="" loading="lazy"><span>Coloured site plan</span></button>
         </div>
       </article>
 
