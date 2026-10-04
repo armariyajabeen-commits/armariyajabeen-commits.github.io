@@ -205,7 +205,25 @@ function openViewer(i) {
   $('#vFind').innerHTML = p.find.map(([b, t]) => `<li><b>${b}</b>${t}</li>`).join('');
   $('#vLimit').textContent = p.limit;
   $('.v-img', viewer).scrollTop = 0;
+  renderGal(p);
   if (!viewer.open) viewer.showModal();
+}
+let GIS = null;
+const gisReady = fetch('img/gis/manifest.json').then(r => r.json()).then(d => { GIS = d; }).catch(() => {});
+function renderGal(p) {
+  const wrap = $('#vGalWrap'); wrap.hidden = true;
+  gisReady.then(() => {
+    if (!GIS || cur !== PLATES.indexOf(p)) return;
+    const imgs = GIS.imgs[p.id] || [], gifs = GIS.gifs[p.id] || [];
+    if (!imgs.length && !gifs.length) return;
+    const all = [...gifs.map(g => ({ src: g.src, cap: g.cap })), ...imgs.map(i => ({ src: i.src, cap: i.cap }))];
+    $('#vGifs').innerHTML = gifs.map((g, k) => `<button type="button" data-k="${k}"><img src="${g.src}" alt="${g.cap}" loading="lazy"><span>${g.cap}</span></button>`).join('');
+    $('#vGifs').previousElementSibling.hidden = !gifs.length; $('#vGifs').hidden = !gifs.length;
+    $('#vThumbs').innerHTML = imgs.map((i, k) => `<button type="button" data-k="${gifs.length + k}"><img src="${i.sm}" alt="${i.cap}" loading="lazy" width="${i.w}" height="${i.h}"><span>${i.cap}</span></button>`).join('');
+    $('#vThumbs').previousElementSibling.hidden = !imgs.length; $('#vThumbs').hidden = !imgs.length;
+    $$('button', wrap).forEach(b => b.onclick = () => lbOpen(all, +b.dataset.k));
+    wrap.hidden = false;
+  });
 }
 function step(d) { const v = visibleIdx(); const k = v.indexOf(cur); openViewer(v[(k + d + v.length) % v.length] ?? cur); }
 $('#vClose').addEventListener('click', () => viewer.close());
@@ -256,6 +274,29 @@ $('#lbPrev').addEventListener('click', () => lbShow(lbI - 1));
 $('#lbNext').addEventListener('click', () => lbShow(lbI + 1));
 lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
 lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') lbShow(lbI + 1); if (e.key === 'ArrowLeft') lbShow(lbI - 1); });
+
+/* undercooked wall + conferences */
+$$('#ucWall').forEach(g => { const bs = $$('button', g); const L = bs.map(b => ({ src:b.dataset.full, cap:b.dataset.cap }));
+  bs.forEach((b, i) => b.addEventListener('click', () => lbOpen(L, i))); });
+$$('.conf-img').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.dataset.full, cap:b.dataset.cap }], 0)));
+/* crux image */
+$$('.crux button').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.dataset.full, cap:b.dataset.cap }], 0)));
+
+/* sketchbook wall */
+(() => {
+  const wall = $('#skWall'); if (!wall) return;
+  let items = [], f = 'all';
+  const label = { section:'Exhibit section', ink:'Ink study', plan:'Plan / concept' };
+  const draw = () => {
+    const list = items.filter(i => f === 'all' || i.cat === f);
+    $('#skCount').textContent = list.length + ' drawings';
+    wall.innerHTML = list.map((i, k) => `<button type="button" class="sk" data-k="${k}"><img src="img/sketch/${i.id}-sm.jpg" alt="${i.t}" width="${i.w}" height="${i.h}" loading="lazy"><span>${i.t}</span></button>`).join('');
+    const L = list.map(i => ({ src:`img/sketch/${i.id}.jpg`, cap:`${i.t} · ${label[i.cat]}` }));
+    $$('.sk', wall).forEach(b => b.addEventListener('click', () => lbOpen(L, +b.dataset.k)));
+  };
+  $$('[data-skf]').forEach(b => b.addEventListener('click', () => { f = b.dataset.skf; $$('[data-skf]').forEach(x => x.classList.toggle('is-on', x === b)); draw(); }));
+  fetch('img/sketch/manifest.json').then(r => r.json()).then(d => { items = d; draw(); }).catch(() => { wall.textContent = 'Sketches could not be loaded.'; });
+})();
 
 $$('[data-gallery]').forEach(g => { const btns = $$('button', g); const list = btns.map(b => ({ src:b.dataset.full, cap:b.dataset.cap }));
   btns.forEach((b, i) => b.addEventListener('click', () => lbOpen(list, i))); });

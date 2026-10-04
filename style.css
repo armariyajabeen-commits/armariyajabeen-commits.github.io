@@ -336,7 +336,8 @@ button{font:inherit; color:inherit}
   .nav{grid-template-columns:auto 1fr; padding:10px var(--gut)}
   .nav-left{grid-column:1 / -1; grid-row:2; overflow-x:auto; gap:18px; scrollbar-width:none; padding-top:4px}
   .nav-left::-webkit-scrollbar{display:none}
-  .monogram{grid-column:1; grid-row:1}
+  .wordmark{grid-column:1; grid-row:1}
+  .nav-right a:not(.nav-cta):not([href="#credentials"]){display:none}
   .nav-right{grid-row:1; grid-column:2}
   html{scroll-padding-top:100px}
   .hero{padding-top:36px}
@@ -550,3 +551,76 @@ input[type=range]{width:100%; accent-color:var(--yellow); height:24px; cursor:po
 @media (hover:hover){ .cseal:hover{transform:rotateY(180deg)} }
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (max-width:720px){ .seals{grid-template-columns:repeat(2,1fr)} .seal-b{padding:14%; font-size:10px} .seal-b em{font-size:13px} }
+
+/* ---- project galleries in plate viewer ---- */
+.v-gal{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
+.v-gal .label{margin:14px 0 8px}
+.v-gifs,.v-thumbs{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.v-gifs{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.v-gal button{all:unset;cursor:zoom-in;display:block;background:#161614;border:1px solid rgba(255,255,255,.12);padding:6px;border-radius:4px}
+.v-gal button:focus-visible{outline:2px solid var(--yellow)}
+.v-gal img{display:block;width:100%;height:auto;aspect-ratio:auto;background:#fff}
+.v-gal span{display:block;font:500 10px/1.3 'IBM Plex Mono',monospace;letter-spacing:.04em;color:#c9c6bd;margin-top:6px}
+
+/* ---- sketchbook wall + crux ---- */
+.sk-filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0 14px}
+.sk-filter .chip.is-on{background:var(--yellow);color:#111;border-color:var(--yellow)}
+.sk-count{margin-left:auto;font:500 11px 'IBM Plex Mono',monospace;color:#a9a69d;letter-spacing:.06em}
+.sk-wall{columns:4 190px;column-gap:12px}
+.sk{all:unset;display:block;break-inside:avoid;margin:0 0 12px;cursor:zoom-in;background:#f3f1ea;padding:6px 6px 4px;border-radius:3px;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:transform .25s}
+.sk:hover,.sk:focus-visible{transform:translateY(-3px) rotate(-.4deg)}
+.sk:focus-visible{outline:2px solid var(--yellow)}
+.sk img{display:block;width:100%;height:auto}
+.sk span{display:block;font:500 9.5px/1.3 'IBM Plex Mono',monospace;color:#444;margin-top:5px;letter-spacing:.04em}
+.crux{margin:22px 0 4px}
+.crux button{all:unset;display:block;cursor:zoom-in;background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+.crux button:focus-visible{outline:2px solid var(--yellow)}
+.crux img{display:block;width:100%;height:auto}
+.crux figcaption{font:400 13px/1.5 Inter,sans-serif;color:#c9c6bd;margin-top:10px;max-width:70ch}
+.crux figcaption b{color:var(--yellow);font-weight:600}
+
+/* ---- wordmark (replaces monogram) ---- */
+.wordmark{display:inline-flex;gap:.28em;align-items:baseline;text-decoration:none;font:400 28px/1 var(--serif);color:var(--text);letter-spacing:-.01em;white-space:nowrap;transition:color .2s}
+.wordmark em{font-style:italic;color:var(--yellow)}
+.wordmark:hover{color:#fff}.wordmark:hover em{color:#fff}
+.wordmark--sm{font-size:20px}
+
+/* ---- credential logo tiles ---- */
+.cseal{max-width:190px;aspect-ratio:1/1.08}
+.seal-f,.seal-b{border-radius:14px}
+.seal-f{background:#f6f4ee;border:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px}
+.seal-f::after{display:none}
+.seal-f img{display:block;max-width:100%;max-height:58%;width:auto;height:auto;object-fit:contain;flex:0 1 auto;mix-blend-mode:multiply}
+.seal-f img[src*="duke"],.seal-f img[src*="uva"]{mix-blend-mode:normal;border-radius:4px}
+.seal-f small{font:500 9px/1.3 var(--mono);color:#4a463d;text-align:center;letter-spacing:.03em;text-transform:none}
+.seal-f--glyph svg{position:static;width:46%;height:auto;color:#2f5be6;animation:none}
+.seal-b{padding:14px;border-radius:14px}
+.seal-b em{font-size:14px}
+.seals{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+
+/* ---- conferences ---- */
+.conf-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+.conf{display:grid;gap:18px;align-content:start;border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg-2)}
+.conf-img{all:unset;display:block;cursor:zoom-in;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.4)}
+.conf-img:focus-visible{outline:2px solid var(--yellow)}
+.conf-img img{display:block;width:100%;height:auto}
+.conf-sub{font:italic 400 18px/1.3 var(--serif);color:var(--text-2);margin:2px 0 10px}
+.conf-logos{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:14px;background:#f6f4ee;border-radius:8px;padding:10px 14px;width:fit-content}
+.conf-logos img{height:34px;width:auto;display:block}
+
+/* ---- teaching + undercooked ---- */
+.teach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.teach-card{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--bg-2);display:flex;flex-direction:column;gap:8px}
+.teach-card .body{font-size:14px}
+.ig{margin-top:auto;font:500 12px var(--mono);color:var(--yellow);text-decoration:none;letter-spacing:.04em}
+.ig:hover{text-decoration:underline}
+.uc-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin:64px 0 18px}
+.uc-wall{columns:4 200px;column-gap:12px}
+.uc{all:unset;display:block;break-inside:avoid;margin:0 0 12px;cursor:zoom-in;position:relative;border-radius:6px;overflow:hidden;background:#161614}
+.uc:focus-visible{outline:2px solid var(--yellow)}
+.uc img{display:block;width:100%;height:auto;transition:transform .5s}
+.uc:hover img{transform:scale(1.04)}
+.uc span{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;font:500 10px var(--mono);color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7));opacity:0;transition:opacity .25s}
+.uc:hover span,.uc:focus-visible span{opacity:1}
+@media (max-width:900px){.conf-grid{grid-template-columns:1fr}.teach-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.teach-grid{grid-template-columns:1fr}.uc-wall,.sk-wall{columns:2 140px}.wordmark{font-size:19px}}
