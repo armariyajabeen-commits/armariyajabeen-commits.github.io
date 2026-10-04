@@ -49,7 +49,13 @@ const PLATES = [
     q:'Water, movement, infrastructure and the historic core, drawn as an exploded axonometric of stacked layers.',
     data:'Landmarks · buildings · bridges · roads · paths · green space · water',
     find:[['7','layers stacked to show how the city is assembled']],
-    limit:'An architectural way of reading a city: the stack makes relationships visible at a glance.' }
+    limit:'An architectural way of reading a city: the stack makes relationships visible at a glance.' },
+  { id:'p08', no:'P08', cat:['terrain'], place:'Mississippi · USA', title:'Mississippi in relief',
+    img:'img/relief-ms.jpg', thumb:'img/relief-ms-sm.jpg',
+    q:'A shaded-relief study of Mississippi: the flat Delta floodplain in the west set against the dissected uplands and branching river valleys to the east.',
+    data:'Digital elevation model · hillshade rendering',
+    find:[['West / East','a smooth alluvial Delta beside an intricately eroded upland'],['Drainage','river networks read directly from the terrain']],
+    limit:'A cartographic study: shading emphasises landform rather than exact heights.' }
 ];
 
 /* ---------- generic drag ---------- */
@@ -101,7 +107,7 @@ function showTag(card) {
   btn.textContent = card.dataset.cta || 'Open';
   btn.href = card.dataset.link || '#';
   btn.target = /^https?:/.test(btn.href) && !card.dataset.plate ? '_blank' : '';
-  btn.onclick = card.dataset.plate ? (e => { e.preventDefault(); hideTag(); openViewer(PLATES.findIndex(p => p.id === card.dataset.plate)); }) : (() => hideTag());
+  btn.onclick = card.dataset.tab ? (e => { e.preventDefault(); hideTag(); const t = document.querySelector(`[data-proj=${card.dataset.tab}]`); if (t) t.click(); document.querySelector('#architecture').scrollIntoView({ behavior:'smooth' }); }) : card.dataset.plate ? (e => { e.preventDefault(); hideTag(); openViewer(PLATES.findIndex(p => p.id === card.dataset.plate)); }) : (() => hideTag());
   tag.hidden = false;
   const s = stage.getBoundingClientRect(), c = card.getBoundingClientRect();
   const tw = tag.offsetWidth, th = tag.offsetHeight;
@@ -389,4 +395,28 @@ $('#deckFs').addEventListener('click', e => { e.stopPropagation();
 let dsx = null; dStage.addEventListener('touchstart', e => dsx = e.touches[0].clientX, { passive:true });
 dStage.addEventListener('touchend', e => { if (dsx === null) return; const dx = e.changedTouches[0].clientX - dsx; if (Math.abs(dx) > 40) deckGo(ds + (dx < 0 ? 1 : -1)); dsx = null; });
 deckLoad('tp');
+
+/* ================= shelter phasing ================= */
+const PHASES = [
+  [0, 1, '<b>Four phases, one shelter.</b> The diagram follows a household from an emergency unit to a home inside a community. Select a phase to read it.'],
+  [.10, .45, '<b>1 · Emergency.</b> A prefabricated tent or room and a toilet are placed on the family plot, meeting the basic need first.'],
+  [.45, .73, '<b>2 · Temporary.</b> With size flexibility and participatory layouts, families self-build: rooms, toilets and kitchens are added in many arrangements.'],
+  [.73, .86, '<b>3 · Transitional.</b> Using vernacular materials, the shelter becomes a full home that answers privacy, sanitation and kitchen needs.'],
+  [.86, .99, '<b>4 · Community.</b> Homes join into shared compounds and streets, grouped around community needs.']
+];
+const band = $('#phaseBand'), ptext = $('#phaseText');
+function setPhase(i) {
+  $$('#phaseBtns button').forEach(b => b.classList.toggle('is-on', +b.dataset.ph === i));
+  const [t, bt, txt] = PHASES[i];
+  band.style.top = t * 100 + '%'; band.style.height = (bt - t) * 100 + '%';
+  band.classList.toggle('on', i > 0); ptext.innerHTML = txt;
+}
+$$('#phaseBtns button').forEach(b => b.addEventListener('click', () => setPhase(+b.dataset.ph)));
+$('#phaseStage').addEventListener('click', e => { const r = e.currentTarget.getBoundingClientRect(), y = (e.clientY - r.top) / r.height;
+  const i = PHASES.findIndex((p, k) => k > 0 && y >= p[0] && y < p[1]); setPhase(i > 0 ? i : 0); });
+$('#phaseStage').style.cursor = 'pointer';
+setPhase(0);
+
+/* ================= credential seals ================= */
+$$('.cseal').forEach(s => s.addEventListener('click', () => { if (!matchMedia('(hover:hover)').matches) s.classList.toggle('flip'); }));
 })();

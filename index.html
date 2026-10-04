@@ -28,6 +28,7 @@
   </nav>
   <a class="monogram" href="#top" aria-label="Maria Jabeen — home"><span>mj</span></a>
   <nav class="nav-right" aria-label="More">
+    <a href="#credentials">Credentials</a>
     <a href="#methods">Methods</a>
     <a class="nav-cta" href="#contact">Contact</a>
   </nav>
@@ -119,6 +120,18 @@
         <div class="id-bar" aria-hidden="true"></div>
       </article>
 
+      <!-- pen drawing print -->
+      <article class="art art-photo art-photo--sketch" style="--x:23%;--y:-1%;--r:-3deg;--w:min(190px,34vw)" data-title="Old-city isometric" data-text="Hand-drawn isometric of a walled-city block: jharokas, stairs, roof terraces, shops and street life layered into one building." data-year="Sketchbook · pen &amp; ink" data-link="#architecture" data-tab="sketch" data-cta="Open sketchbook">
+        <img src="img/arch/sk-isometric-sm.jpg" alt="Pen drawing of an old-city building in isometric" draggable="false">
+        <p class="cap">Pen &amp; ink · isometric</p>
+      </article>
+
+      <!-- desk sketches photo -->
+      <article class="art art-photo art-photo--bw" style="--x:77%;--y:60%;--r:5deg;--w:min(190px,34vw)" data-title="On the drawing desk" data-text="Working sketches: street sections, stall studies and a hand-drawn plan of a circular market, drawn before anything goes into the computer." data-year="Sketchbook · process" data-link="#architecture" data-tab="sketch" data-cta="Open sketchbook">
+        <img src="img/arch/sk-desk-sm.jpg" alt="Photo of hand sketches and a plan on a desk with a mug" draggable="false">
+        <p class="cap">Process sketches</p>
+      </article>
+
       <!-- pink HHI slip -->
       <article class="art art-slip" style="--x:44%;--y:52%;--r:-5deg;--w:min(240px,44vw)" data-title="HHI — Evidence Status" data-text="Human–Hydro Inference: an AI that must label every claim by what the evidence supports. ‘The evidence does not establish this’ counts as a correct answer." data-year="2025 — present" data-link="https://github.com/armariyajabeen-commits/hhi-atlas" data-cta="View HHI code ↗">
         <p class="slip-head">EVIDENCE STATUS SLIP</p>
@@ -164,6 +177,7 @@
       <button role="tab" aria-selected="false" data-proj="tollinton"><span>04</span>Tollinton Market</button>
       <button role="tab" aria-selected="false" data-proj="savoye"><span>05</span>Villa Savoye BIM</button>
       <button role="tab" aria-selected="false" data-proj="zooscape"><span>06</span>Zooscape</button>
+      <button role="tab" aria-selected="false" data-proj="sketch"><span>07</span>Sketchbook</button>
     </div>
 
     <div class="proj-stack reveal">
@@ -200,6 +214,24 @@
             </div>
             <ol class="step-list" id="stepList"></ol>
           </div>
+        </div>
+
+        <div class="phasing">
+          <div class="clusters-head">
+            <p class="label">Interactive · from emergency to community</p>
+            <div class="filters" id="phaseBtns">
+              <button class="chip is-on" data-ph="0">All phases</button>
+              <button class="chip" data-ph="1">1 · Emergency</button>
+              <button class="chip" data-ph="2">2 · Temporary</button>
+              <button class="chip" data-ph="3">3 · Transitional</button>
+              <button class="chip" data-ph="4">4 · Community</button>
+            </div>
+          </div>
+          <div class="phase-stage" id="phaseStage">
+            <img src="img/arch/th-phasing.jpg" alt="Diagram of shelter phases from emergency to community">
+            <div class="phase-band" id="phaseBand" aria-hidden="true"></div>
+          </div>
+          <p class="body phase-text" id="phaseText" aria-live="polite"></p>
         </div>
 
         <div class="clusters">
@@ -374,6 +406,41 @@
         </div>
       </article>
 
+      <!-- 07 SKETCHBOOK -->
+      <article class="proj" id="proj-sketch" role="tabpanel" hidden>
+        <div class="proj-head">
+          <div>
+            <p class="label">Hand drawing · graphics · ongoing</p>
+            <h3 class="h3">Sketchbook</h3>
+            <p class="proj-sub">Pen, paper and collage: where the projects begin</p>
+          </div>
+          <dl class="proj-facts">
+            <div><dt>Media</dt><dd>Pen &amp; ink · marker · digital collage</dd></div>
+            <div><dt>Subjects</dt><dd>Old-city fabric · markets · plans</dd></div>
+            <div><dt>Items</dt><dd>3 drawings</dd></div>
+          </dl>
+        </div>
+        <p class="body proj-text">Drawing is how I think through a place before it becomes a model or a map. The isometric reads a walled-city block as one layered building of stairs, jharokas, terraces and shopfronts. The desk sketches test stalls, street sections and a circular market plan, and the collage gathers architectural plans into a single field.</p>
+        <div class="sketch-grid">
+          <div class="lens-stage" data-lens>
+            <img src="img/arch/sk-isometric.jpg" alt="Pen and ink isometric of an old-city building">
+            <div class="lens" aria-hidden="true"></div>
+            <span class="lens-hint">Hover to zoom · select to enlarge</span>
+          </div>
+          <div class="sketch-side">
+            <div class="lens-stage" data-lens>
+              <img src="img/arch/sk-collage.jpg" alt="Collage of architectural plans on a sand-coloured ground">
+              <div class="lens" aria-hidden="true"></div>
+            </div>
+            <div class="lens-stage" data-lens>
+              <img src="img/arch/sk-desk.jpg" alt="Process sketches and a market plan on a drawing desk">
+              <div class="lens" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+
     </div>
   </div>
 </section>
@@ -433,7 +500,7 @@
         </div>
       </div>
     </div>
-    <p class="body reveal intro-line">Seven reproducible spatial studies on open data, scripted in QGIS and Python. Each reports associations only, with provenance and limits documented. Select a plate to open its full board.</p>
+    <p class="body reveal intro-line">Eight spatial studies on open data, scripted in QGIS and Python. Each reports associations only, with provenance and limits documented. Select a plate to open its full board.</p>
 
     <div class="plates is-grid" id="plates"></div>
   </div>
@@ -460,10 +527,39 @@
   </div>
 </section>
 
+<!-- ================= CREDENTIALS ================= -->
+<section class="section" id="credentials">
+  <div class="wrap">
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 05 <i>/</i> Credentials</p>
+    <h2 class="display reveal">Affiliations &amp; <em>credentials</em></h2>
+    <p class="body reveal intro-line">Universities and institutions I have studied, taught or certified with. Hover over or tap a seal to turn it over.</p>
+
+    <p class="label seal-group reveal">Studied · taught · registered</p>
+    <div class="seals reveal" data-seals>
+      <button class="cseal" style="--h:#b4452a"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="r1" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#r1" textLength="286" lengthAdjust="spacing">NATIONAL UNIVERSITY OF SCIENCES &amp; TECHNOLOGY ·</textPath></text></svg><b>NUST</b></span><span class="seal-b"><em>M.Arch, Advanced Architectural Design</em>2023–2024 · distinction<br>Teaching assistant 2023–24</span></button>
+      <button class="cseal" style="--h:#1e6f69"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="r2" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#r2" textLength="286" lengthAdjust="spacing">UNIVERSITY OF THE PUNJAB · LAHORE · PAKISTAN ·</textPath></text></svg><b>PU</b></span><span class="seal-b"><em>B.Arch · College of Art &amp; Design</em>2016–2021 · distinction<br>Lecturer since 2024</span></button>
+      <button class="cseal" style="--h:#2f5be6"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="r3" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#r3" textLength="286" lengthAdjust="spacing">PAKISTAN COUNCIL OF ARCHITECTS &amp; TOWN PLANNERS ·</textPath></text></svg><b class="sm">PCATP</b></span><span class="seal-b"><em>Registered architect</em>Registered August 2021</span></button>
+    </div>
+
+    <p class="label seal-group reveal">Certified by</p>
+    <div class="seals reveal" data-seals>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c1" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c1" textLength="286" lengthAdjust="spacing">UNIVERSITY OF TORONTO · UNIVERSITY OF TORONTO ·</textPath></text></svg><b>UofT</b></span><span class="seal-b"><em>GIS, Mapping &amp; Spatial Analysis</em>Specialization · 2026</span></button>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c2" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c2" textLength="286" lengthAdjust="spacing">DUKE UNIVERSITY · COMMUNITY RESILIENCE ·</textPath></text></svg><b>Duke</b></span><span class="seal-b"><em>Climate Change Leadership for Community Resilience</em>Specialization · 2026</span></button>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c3" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c3" textLength="286" lengthAdjust="spacing">INTERGOVERNMENTAL OCEANOGRAPHIC COMMISSION ·</textPath></text></svg><b>IOC</b></span><span class="seal-b"><em>Flood Hazard &amp; Exposure Mapping</em>IOC of UNESCO · 2026</span></button>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c4" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c4" textLength="286" lengthAdjust="spacing">UNESCO · CLIMATE RISK INFORMED DECISIONS ·</textPath></text></svg><b class="sm">UNESCO</b></span><span class="seal-b"><em>Climate Risk Informed Decision Analysis (CRIDA)</em>Introduction · 2026</span></button>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c5" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c5" textLength="286" lengthAdjust="spacing">INTER-AMERICAN DEVELOPMENT BANK · IDB ·</textPath></text></svg><b>IDB</b></span><span class="seal-b"><em>Natural Disaster &amp; Climate Change Risk Assessment</em>Specialization · 2026</span></button>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c6" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c6" textLength="286" lengthAdjust="spacing">JOHNS HOPKINS UNIVERSITY · JOHNS HOPKINS ·</textPath></text></svg><b>JHU</b></span><span class="seal-b"><em>Sustainable Cities · Data Visualization</em>Specializations · 2024 &amp; 2025</span></button>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c7" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c7" textLength="286" lengthAdjust="spacing">UNIVERSITY OF AMSTERDAM · UVA · AMSTERDAM ·</textPath></text></svg><b>UvA</b></span><span class="seal-b"><em>Methods &amp; Statistics in Social Sciences</em>Specialization · 2022</span></button>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c8" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c8" textLength="286" lengthAdjust="spacing">YALE UNIVERSITY · YALE UNIVERSITY · YALE ·</textPath></text></svg><b>Yale</b></span><span class="seal-b"><em>Roman Architecture</em>Course · 2023</span></button>
+      <button class="cseal"><span class="seal-f"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c9" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text textLength="286" lengthAdjust="spacing"><textPath href="#c9" textLength="286" lengthAdjust="spacing">L&amp;T EDUTECH · L&amp;T EDUTECH · L&amp;T EDUTECH ·</textPath></text></svg><b>L&amp;T</b></span><span class="seal-b"><em>Sustainable Design Practices in Building Design</em>Specialization · 2026</span></button>
+    </div>
+  </div>
+</section>
+
 <!-- ================= METHODS ================= -->
 <section class="section" id="methods">
   <div class="wrap">
-    <p class="crumbs reveal">Archive <i>/</i> Drawer 05 <i>/</i> Methods</p>
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 06 <i>/</i> Methods</p>
     <h2 class="display reveal">Methods &amp; <em>tools</em></h2>
     <div class="legend reveal">
       <div><p class="label"><i style="--c:#c9b98f"></i>Research design</p><p class="body">Mixed methods · surveys &amp; interviews · household research · case studies · secondary-data analysis</p></div>
@@ -484,7 +580,7 @@
 <!-- ================= CONTACT ================= -->
 <section class="section contact" id="contact">
   <div class="wrap">
-    <p class="crumbs reveal">Archive <i>/</i> Drawer 06 <i>/</i> Correspondence</p>
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 07 <i>/</i> Correspondence</p>
     <h2 class="display reveal">Open to <em>PhD positions</em></h2>
     <p class="body reveal intro-line">In climate-risk planning, spatial evidence and human-centred AI. References are available on request.</p>
     <ul class="contact-list reveal">

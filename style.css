@@ -515,3 +515,38 @@ input[type=range]{width:100%; accent-color:var(--yellow); height:24px; cursor:po
 .deck-thumbs button span{position:absolute; left:3px; top:3px; background:var(--bg); color:var(--text-2); font:400 9px/1 var(--mono); padding:2px 4px; border-radius:2px}
 .deck-thumbs button:hover, .deck-thumbs button.is-on{opacity:1; border-color:var(--yellow)}
 @media (max-width:720px){ .deck-nav{width:36px; height:36px; font-size:15px} .deck-thumbs button{flex-basis:88px} }
+
+/* ================= sketchbook & phasing ================= */
+.art-photo--sketch{background:#fbfaf6}
+.art-photo--sketch img{aspect-ratio:1; object-fit:contain; background:#fff}
+.sketch-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:20px; align-items:start}
+.sketch-side{display:grid; gap:20px}
+.phasing{margin-bottom:40px}
+.phase-stage{position:relative; background:#fff; border-radius:8px; overflow:hidden}
+.phase-stage img{width:100%; height:auto; display:block}
+.phase-band{position:absolute; left:0; right:0; top:0; height:100%; pointer-events:none; border-top:2px solid transparent; border-bottom:2px solid transparent;
+  box-shadow:0 0 0 2000px rgba(13,13,12,0); transition:top .45s cubic-bezier(.2,.8,.2,1), height .45s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s}
+.phase-band.on{box-shadow:0 0 0 2000px rgba(13,13,12,.62); border-color:var(--yellow)}
+.phase-text{margin-top:14px; max-width:80ch; min-height:3.4em}
+.phase-text b{color:var(--yellow); font-weight:500}
+@media (max-width:980px){ .sketch-grid{grid-template-columns:1fr} }
+
+/* ================= credential seals ================= */
+.seal-group{margin-top:44px}
+.seals{display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:18px; perspective:900px}
+.cseal{position:relative; width:100%; max-width:180px; justify-self:center; aspect-ratio:1; border:0; padding:0; background:none; cursor:pointer; transform-style:preserve-3d; transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.seal-f, .seal-b{position:absolute; inset:0; border-radius:50%; backface-visibility:hidden; -webkit-backface-visibility:hidden; display:grid; place-items:center}
+.seal-f{border:1px solid var(--line-2); background:radial-gradient(circle at 50% 40%, var(--bg-3), var(--bg-2)); transition:border-color .2s}
+.seal-f svg{position:absolute; inset:4%; width:92%; height:92%; animation:spin 40s linear infinite}
+.seal-f text{font:500 8.4px var(--mono); letter-spacing:.4px; fill:var(--text-3)}
+.seal-f b.sm{font-size:clamp(17px,1.7vw,22px)}
+.seal-f b{font:400 clamp(20px,2.1vw,27px)/1 var(--serif); max-width:58%; text-align:center; overflow-wrap:anywhere; color:var(--text); font-weight:400; position:relative}
+.seal-f::after{content:""; position:absolute; inset:22%; border-radius:50%; border:1px dashed var(--line-2)}
+.seal-b{transform:rotateY(180deg); background:var(--h, var(--manila)); color:#1e1b17; padding:16%; text-align:center; font:400 10.5px/1.45 var(--mono)}
+.cseal[style*="--h"] .seal-b{color:#fff}
+.seal-b em{display:block; font:italic 400 15px/1.15 var(--serif); margin-bottom:6px}
+.cseal:hover .seal-f, .cseal:focus-visible .seal-f{border-color:var(--yellow)}
+.cseal.flip{transform:rotateY(180deg)}
+@media (hover:hover){ .cseal:hover{transform:rotateY(180deg)} }
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:720px){ .seals{grid-template-columns:repeat(2,1fr)} .seal-b{padding:14%; font-size:10px} .seal-b em{font-size:13px} }
