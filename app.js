@@ -150,14 +150,41 @@ if (!reduced) {
   });
 }
 
+/* ---------- plate covers: each plate gets its own kind of cover ---------- */
+const COVERS = {
+  p01: { t:'slide', a:'img/cover/p01-a.jpg', b:'img/cover/p01-b.jpg', la:'Mapped buildings', lb:'Detected flood' },
+  p02: { t:'gif',   src:'img/cover/p02-cover.gif' },
+  p03: { t:'img',   src:'img/cover/p03-collage.jpg' },
+  p04: { t:'img',   src:'img/cover/p04-cover.jpg' },
+  p05: { t:'img',   src:'img/cover/p05-cover.jpg', white:1 },
+  p06: { t:'slide', a:'img/cover/p06-a.jpg', b:'img/cover/p06-b.jpg', la:'Barcelona', lb:'Lahore' },
+  p07: { t:'img',   src:'img/cover/p07-cover.jpg', white:1 },
+};
+function coverHTML(p) {
+  const c = COVERS[p.id];
+  if (!c) return `<div class="plate-img"><img src="${p.thumb}" alt="" loading="lazy" draggable="false"></div>`;
+  if (c.t === 'slide') return `<div class="plate-img cv-slide" style="--p:50%"><img src="${c.a}" alt="" loading="lazy" draggable="false"><img class="cv-b" src="${c.b}" alt="" loading="lazy" draggable="false"><span class="cv-h" aria-hidden="true"></span><i class="cv-l">${c.lb}</i><i class="cv-r">${c.la}</i></div>`;
+  return `<div class="plate-img${c.white ? ' cv-white' : ''}"><img src="${c.src}" alt="" loading="lazy" draggable="false"></div>`;
+}
+
 /* ---------- collections ---------- */
 const platesEl = $('#plates');
 platesEl.innerHTML = PLATES.map((p, i) => `
   <button class="plate" data-i="${i}" data-cat="${p.cat.join(' ')}" aria-label="Open plate ${p.no}: ${p.title}">
-    <div class="plate-img"><img src="${p.thumb}" alt="" loading="lazy" draggable="false"></div>
+    ${coverHTML(p)}
     <div class="plate-meta"><p class="label">${p.no} · ${p.place}</p><h3>${p.title}</h3></div>
   </button>`).join('');
 const plateEls = $$('.plate', platesEl);
+// before/after covers follow the cursor; on touch they sweep by themselves
+$$('.cv-slide', platesEl).forEach(el => {
+  el.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    const r = el.getBoundingClientRect();
+    el.classList.add('is-hover');
+    el.style.setProperty('--p', Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)) + '%');
+  });
+  el.addEventListener('pointerleave', () => { el.classList.remove('is-hover'); el.style.setProperty('--p', '50%'); });
+});
 plateEls.forEach(el => draggable(el, { onTap: el => openViewer(+el.dataset.i) }));
 
 function layoutPile() {
@@ -275,9 +302,7 @@ $('#lbNext').addEventListener('click', () => lbShow(lbI + 1));
 lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
 lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') lbShow(lbI + 1); if (e.key === 'ArrowLeft') lbShow(lbI - 1); });
 
-/* undercooked wall + conferences */
-$$('#ucWall').forEach(g => { const bs = $$('button', g); const L = bs.map(b => ({ src:b.dataset.full, cap:b.dataset.cap }));
-  bs.forEach((b, i) => b.addEventListener('click', () => lbOpen(L, i))); });
+/* conferences */
 $$('.conf-img').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.dataset.full, cap:b.dataset.cap }], 0)));
 /* crux image */
 $$('.crux button').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.dataset.full, cap:b.dataset.cap }], 0)));
