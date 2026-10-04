@@ -237,4 +237,111 @@ if (finePointer && !reduced) {
   document.addEventListener('pointerleave', () => dot.classList.remove('on'));
   (function loop() { x += (tx - x) * .2; y += (ty - y) * .2; dot.style.transform = `translate(${x}px, ${y}px)`; requestAnimationFrame(loop); })();
 }
+
+/* ================= ARCHITECTURE ================= */
+/* lightbox for drawings */
+const lb = $('#lb'); let lbList = [], lbI = 0;
+function lbShow(i) { lbI = (i + lbList.length) % lbList.length; const it = lbList[lbI];
+  $('#lbImg').src = it.src; $('#lbImg').alt = it.cap || ''; $('#lbCap').textContent = it.cap || '';
+  $('#lbPrev').hidden = $('#lbNext').hidden = lbList.length < 2; $('.lb-img', lb).scrollTop = 0; if (!lb.open) lb.showModal(); }
+function lbOpen(list, i) { lbList = list; lbShow(i); }
+$('#lbClose').addEventListener('click', () => lb.close());
+$('#lbPrev').addEventListener('click', () => lbShow(lbI - 1));
+$('#lbNext').addEventListener('click', () => lbShow(lbI + 1));
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') lbShow(lbI + 1); if (e.key === 'ArrowLeft') lbShow(lbI - 1); });
+
+$$('[data-gallery]').forEach(g => { const btns = $$('button', g); const list = btns.map(b => ({ src:b.dataset.full, cap:b.dataset.cap }));
+  btns.forEach((b, i) => b.addEventListener('click', () => lbOpen(list, i))); });
+
+/* project tabs */
+const tabs = $$('.folder-tabs [role=tab]');
+tabs.forEach(t => t.addEventListener('click', () => {
+  tabs.forEach(x => x.setAttribute('aria-selected', x === t));
+  $$('.proj').forEach(p => { const on = p.id === 'proj-' + t.dataset.proj; p.hidden = !on; p.classList.toggle('is-on', on); });
+  stopPlay();
+}));
+
+/* image swap with fade + preload */
+function swap(img, src) { if (img.getAttribute('src') === src) return; img.classList.add('fade');
+  const n = new Image(); n.onload = () => { img.src = src; requestAnimationFrame(() => img.classList.remove('fade')); }; n.src = src; }
+
+/* build the shelter */
+const STEPS = ['Foundation formation','Platform formation','Zoning division','Framework structure','Opening framework','Brick wall formation','Mud & clay plaster coating','Roof structure formation','Roofing formation','Kitchen & veranda','Outdoor area division','Cattle shade shelter','Exterior wall formation','Complete shelter unit'];
+const stepImg = $('#stepImg'), range = $('#stepRange'), list = $('#stepList');
+list.innerHTML = STEPS.map((s, i) => `<li><button data-s="${i + 1}"><span>${String(i + 1).padStart(2, '0')}</span>${s}</button></li>`).join('');
+function setStep(n) { n = Math.max(1, Math.min(14, n)); range.value = n;
+  swap(stepImg, `img/arch/step-${String(n).padStart(2, '0')}.jpg`); stepImg.alt = 'Shelter construction step ' + n + ': ' + STEPS[n - 1];
+  $('#stepNo').textContent = String(n).padStart(2, '0'); $('#stepTitle').textContent = STEPS[n - 1];
+  $$('button', list).forEach((b, i) => { b.classList.toggle('done', i + 1 < n); b.classList.toggle('cur', i + 1 === n); }); }
+range.addEventListener('input', () => { stopPlay(); setStep(+range.value); });
+$('#stepPrev').addEventListener('click', () => { stopPlay(); setStep(+range.value - 1); });
+$('#stepNext').addEventListener('click', () => { stopPlay(); setStep(+range.value + 1); });
+$$('button', list).forEach(b => b.addEventListener('click', () => { stopPlay(); setStep(+b.dataset.s); }));
+let playT = null; const playBtn = $('#stepPlay');
+function stopPlay() { if (playT) { clearInterval(playT); playT = null; playBtn.textContent = '▶ Play sequence'; } }
+playBtn.addEventListener('click', () => { if (playT) return stopPlay(); if (+range.value >= 14) setStep(1);
+  playBtn.textContent = '❚❚ Pause'; playT = setInterval(() => { if (+range.value >= 14) return stopPlay(); setStep(+range.value + 1); }, 1400); });
+stepImg.parentElement.addEventListener('click', () => lbOpen(STEPS.map((s, i) => ({ src:`img/arch/step-${String(i + 1).padStart(2, '0')}.jpg`, cap:`Step ${i + 1} — ${s}` })), +range.value - 1));
+stepImg.parentElement.style.cursor = 'zoom-in';
+setStep(1);
+for (let i = 2; i <= 14; i++) { const p = new Image(); p.src = `img/arch/step-${String(i).padStart(2, '0')}.jpg`; }
+
+/* clusters */
+const cImg = $('#clusterImg');
+$$('#clusterBtns button').forEach(b => b.addEventListener('click', () => {
+  $$('#clusterBtns button').forEach(x => x.classList.toggle('is-on', x === b));
+  swap(cImg, `img/arch/cluster-${b.dataset.c}.jpg`); cImg.alt = b.textContent + ' cluster typology'; }));
+
+/* magnifier lens */
+function lens(stage) {
+  const img = $('img', stage), l = $('.lens', stage), Z = 3;
+  stage.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return;
+    const r = img.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    l.style.backgroundImage = `url("${img.currentSrc || img.src}")`;
+    l.style.backgroundSize = `${r.width * Z}px ${r.height * Z}px`;
+    l.style.backgroundPosition = `${-(x * Z - 95)}px ${-(y * Z - 95)}px`;
+    l.style.left = (x - 95) + 'px'; l.style.top = (y - 95) + 'px'; });
+  stage.addEventListener('click', () => lbOpen([{ src:img.currentSrc || img.src, cap:img.alt }], 0));
+}
+$$('[data-lens]').forEach(lens);
+const gdMain = $('#gdMain');
+$$('#gdThumbs button').forEach(b => b.addEventListener('click', () => {
+  $$('#gdThumbs button').forEach(x => x.classList.toggle('is-on', x === b));
+  swap(gdMain, b.dataset.src); gdMain.alt = 'Gentle Density — ' + $('span', b).textContent; }));
+
+/* page-flip books */
+$$('[data-book]').forEach(bk => {
+  const key = bk.dataset.book, n = +bk.dataset.pages; let p = 1;
+  bk.innerHTML = `<div class="book-stage"><img src="img/arch/${key}-1.jpg" alt="Page 1"></div>
+    <div class="book-ctrl"><button class="chip bk-prev">← Previous page</button><span class="book-count"><b>1</b> / ${n}</span><button class="chip bk-next">Next page →</button>
+    <div class="book-dots">${Array.from({ length:n }, (_, i) => `<button aria-label="Page ${i + 1}" style="background-image:url(img/arch/${key}-${i + 1}-sm.jpg)"></button>`).join('')}</div></div>`;
+  const stage = $('.book-stage', bk), dots = $$('.book-dots button', bk);
+  function go(t) { t = Math.max(1, Math.min(n, t)); if (t === p) return; const dir = t > p ? 'turn-next' : 'turn-prev'; p = t;
+    const im = document.createElement('img'); im.src = `img/arch/${key}-${p}.jpg`; im.alt = 'Page ' + p; im.className = dir;
+    stage.appendChild(im); im.addEventListener('animationend', () => { $$('img', stage).forEach(x => { if (x !== im) x.remove(); }); im.className = ''; });
+    $('.book-count b', bk).textContent = p; dots.forEach((d, i) => d.classList.toggle('is-on', i + 1 === p)); }
+  dots[0].classList.add('is-on');
+  $('.bk-prev', bk).addEventListener('click', () => go(p - 1));
+  $('.bk-next', bk).addEventListener('click', () => go(p + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => go(i + 1)));
+  stage.addEventListener('click', () => lbOpen(Array.from({ length:n }, (_, i) => ({ src:`img/arch/${key}-${i + 1}.jpg`, cap:`Page ${i + 1} of ${n}` })), p - 1));
+  let sx = null; stage.addEventListener('touchstart', e => sx = e.touches[0].clientX, { passive:true });
+  stage.addEventListener('touchend', e => { if (sx === null) return; const d = e.changedTouches[0].clientX - sx; if (Math.abs(d) > 40) go(p + (d < 0 ? 1 : -1)); sx = null; });
+  for (let i = 2; i <= n; i++) { const pre = new Image(); pre.src = `img/arch/${key}-${i}.jpg`; }
+});
+
+/* compare slider */
+$$('[data-compare]').forEach(c => {
+  const h = $('.compare-handle', c); let on = false;
+  const set = v => { v = Math.max(0, Math.min(100, v)); c.style.setProperty('--pos', v + '%'); h.setAttribute('aria-valuenow', Math.round(v)); };
+  const fromX = x => { const r = c.getBoundingClientRect(); set((x - r.left) / r.width * 100); };
+  c.addEventListener('pointerdown', e => { on = true; c.setPointerCapture(e.pointerId); fromX(e.clientX); });
+  c.addEventListener('pointermove', e => { if (on) fromX(e.clientX); });
+  c.addEventListener('pointerup', () => on = false); c.addEventListener('pointercancel', () => on = false);
+  h.addEventListener('keydown', e => { const v = parseFloat(c.style.getPropertyValue('--pos')) || 50;
+    if (e.key === 'ArrowLeft') set(v - 5); if (e.key === 'ArrowRight') set(v + 5); });
+  if (!reduced) { let t = 0; const intro = setInterval(() => { t += .06; set(50 + Math.sin(t) * 22); if (t > Math.PI * 2) { clearInterval(intro); set(50); } }, 30);
+    c.addEventListener('pointerdown', () => clearInterval(intro), { once:true }); }
+});
 })();

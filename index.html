@@ -21,8 +21,9 @@
 <!-- ================= NAV ================= -->
 <header class="nav">
   <nav class="nav-left" aria-label="Sections">
+    <a href="#architecture">Architecture</a>
     <a href="#instruments">Web maps</a>
-    <a href="#collections">Collections</a>
+    <a href="#collections">Map plates</a>
     <a href="#timeline">Timeline</a>
   </nav>
   <a class="monogram" href="#top" aria-label="Maria Jabeen — home"><span>mj</span></a>
@@ -43,7 +44,7 @@
         <h1 id="hero-title" class="display">Archive of <em>Evidence</em></h1>
       </div>
       <div class="hero-meta">
-        <div class="meta-icons" aria-hidden="true"><span class="mi mi-on"></span><span class="mi"></span></div>
+        <img class="avatar" src="img/maria.jpg" alt="Portrait of Maria Jabeen" width="88" height="88">
         <p>Maria Jabeen<br>Architect · Researcher</p>
         <p class="dim">Lahore · 31.52°N 74.36°E</p>
       </div>
@@ -103,10 +104,19 @@
         <p class="dev-foot">NETWORKX · DIJKSTRA · 4.8 km/h</p>
       </article>
 
-      <!-- photo print: terrain -->
-      <article class="art art-photo art-photo--bw" style="--x:66%;--y:4%;--r:-4deg;--w:min(300px,50vw)" data-title="Terrain, Settled" data-text="Hunza–Gojal and Valais in identical 36 × 36 km windows: 52% vs 29% of land steeper than 35°, yet 75% vs 56% of buildings sit on slopes under 15°." data-year="Plate P04" data-link="#collections" data-cta="View plate" data-plate="p04">
-        <img src="img/p04-detail-sm.jpg" alt="Valley detail of mountain settlement and terrain" draggable="false">
-        <p class="cap">V3 — valley details, Hunza / Valais</p>
+      <!-- photo print: thesis render -->
+      <article class="art art-photo" style="--x:66%;--y:4%;--r:-4deg;--w:min(300px,50vw)" data-title="Connecting Resilience" data-text="M.Arch thesis: a transitional flood shelter that households can build with local materials, growing into a permanent home and grouped into community clusters." data-year="NUST · 2024" data-link="#architecture" data-cta="Build the shelter">
+        <img src="img/arch/th-67-sm.jpg" alt="Render of the transitional shelter designed in the thesis" draggable="false">
+        <p class="cap">Shelter render · Rajanpur</p>
+      </article>
+
+      <!-- reader's card with photo -->
+      <article class="art art-id" style="--x:86%;--y:40%;--r:6deg;--w:min(200px,38vw)" data-title="Maria Jabeen" data-text="Architect and researcher. Lecturer at the University of the Punjab, registered with PCATP, and open to PhD positions in climate-risk planning, spatial evidence and human-centred AI." data-year="Lahore, Pakistan" data-link="#contact" data-cta="Get in touch">
+        <p class="id-head">READER’S CARD</p>
+        <img src="img/maria.jpg" alt="Portrait of Maria Jabeen" draggable="false">
+        <p class="id-name">Maria Jabeen</p>
+        <p class="id-role">Architect · Researcher<br>Registered · PCATP 2021</p>
+        <div class="id-bar" aria-hidden="true"></div>
       </article>
 
       <!-- pink HHI slip -->
@@ -134,6 +144,209 @@
     <div class="pile-ctrl">
       <button class="chip" data-shuffle="heroPile">↻ Shuffle</button>
       <span class="hint">Drag items · select to read the label</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ARCHITECTURE ================= -->
+<section class="section" id="architecture">
+  <div class="wrap">
+    <p class="crumbs reveal">Archive <i>/</i> Drawer 01 <i>/</i> Architecture</p>
+    <div class="coll-head reveal">
+      <h2 class="display">Drawn &amp; built <em>work</em></h2>
+      <p class="body arch-lede">Architecture projects from the M.Arch at NUST and the B.Arch at the University of the Punjab: flood shelter, housing, heritage and landscape. Every project can be explored: build it step by step, flip through the book, or zoom into the boards.</p>
+    </div>
+
+    <div class="folder-tabs reveal" role="tablist" aria-label="Architecture projects">
+      <button role="tab" aria-selected="true" data-proj="thesis"><span>01</span>Connecting Resilience</button>
+      <button role="tab" aria-selected="false" data-proj="density"><span>02</span>Gentle Density</button>
+      <button role="tab" aria-selected="false" data-proj="chiniot"><span>03</span>Chiniot Spine</button>
+      <button role="tab" aria-selected="false" data-proj="tollinton"><span>04</span>Tollinton Market</button>
+      <button role="tab" aria-selected="false" data-proj="savoye"><span>05</span>Villa Savoye BIM</button>
+      <button role="tab" aria-selected="false" data-proj="zooscape"><span>06</span>Zooscape</button>
+    </div>
+
+    <div class="proj-stack reveal">
+
+      <!-- 01 THESIS -->
+      <article class="proj is-on" id="proj-thesis" role="tabpanel">
+        <div class="proj-head">
+          <div>
+            <p class="label">M.Arch thesis · NUST · 2024 · Rajanpur, Punjab</p>
+            <h3 class="h3">Connecting Resilience</h3>
+            <p class="proj-sub">Portable shelter solutions and community needs in flood-prone regions</p>
+          </div>
+          <dl class="proj-facts">
+            <div><dt>Programme</dt><dd>Transitional shelter, clusters, masterplan</dd></div>
+            <div><dt>Method</dt><dd>Household survey · community input · precedents</dd></div>
+            <div><dt>Supervisor</dt><dd>Ar. Kashmala Imtiaz</dd></div>
+          </dl>
+        </div>
+        <p class="body proj-text">After the 2022 floods, many families left relief camps and returned to damaged villages. This thesis asks why, and designs a transitional shelter that households can build themselves with local skills and materials: brick, mud plaster, timber and thatch. It is planned to grow from an emergency unit into a permanent home, with space for a kitchen, veranda and cattle, and units that group into community clusters.</p>
+
+        <div class="builder">
+          <div class="builder-stage">
+            <img id="stepImg" src="img/arch/step-01.jpg" alt="Shelter construction step">
+            <span class="builder-count"><b id="stepNo">01</b> / 14</span>
+          </div>
+          <div class="builder-ctrl">
+            <p class="label">Interactive · build the shelter</p>
+            <p class="builder-title" id="stepTitle">Foundation formation</p>
+            <input type="range" id="stepRange" min="1" max="14" value="1" aria-label="Construction step">
+            <div class="builder-btns">
+              <button class="chip" id="stepPrev">← Step</button>
+              <button class="chip" id="stepPlay">▶ Play sequence</button>
+              <button class="chip" id="stepNext">Step →</button>
+            </div>
+            <ol class="step-list" id="stepList"></ol>
+          </div>
+        </div>
+
+        <div class="clusters">
+          <div class="clusters-head">
+            <p class="label">Interactive · cluster typologies</p>
+            <div class="filters" id="clusterBtns">
+              <button class="chip is-on" data-c="1">Courtyard</button>
+              <button class="chip" data-c="2">Grid</button>
+              <button class="chip" data-c="3">Linear</button>
+              <button class="chip" data-c="4">Hub &amp; spoke</button>
+              <button class="chip" data-c="5">Block</button>
+              <button class="chip" data-c="6">Village</button>
+            </div>
+          </div>
+          <div class="cluster-stage"><img id="clusterImg" src="img/arch/cluster-1.jpg" alt="Shelter cluster typology"></div>
+        </div>
+
+        <p class="label">From the thesis · select to enlarge</p>
+        <div class="strip" data-gallery="thesis">
+          <button data-full="img/arch/th-3.jpg" data-cap="Problem statement: Rajanpur in the 2022 flood map"><img src="img/arch/th-3-sm.jpg" alt="" loading="lazy"></button>
+          <button data-full="img/arch/th-4.jpg" data-cap="Scope of work"><img src="img/arch/th-4-sm.jpg" alt="" loading="lazy"></button>
+          <button data-full="img/arch/th-13.jpg" data-cap="Why do people return instead of staying in camps?"><img src="img/arch/th-13-sm.jpg" alt="" loading="lazy"></button>
+          <button data-full="img/arch/th-14.jpg" data-cap="Community-integrated design precedents"><img src="img/arch/th-14-sm.jpg" alt="" loading="lazy"></button>
+          <button data-full="img/arch/th-51.jpg" data-cap="Cluster module"><img src="img/arch/th-51-sm.jpg" alt="" loading="lazy"></button>
+          <button data-full="img/arch/th-63.jpg" data-cap="Masterplan"><img src="img/arch/th-63-sm.jpg" alt="" loading="lazy"></button>
+          <button data-full="img/arch/th-67.jpg" data-cap="Shelter render"><img src="img/arch/th-67-sm.jpg" alt="" loading="lazy"></button>
+          <button data-full="img/arch/th-poster.jpg" data-cap="Thesis design board"><img src="img/arch/th-poster-sm.jpg" alt="" loading="lazy"></button>
+          <button data-full="img/arch/th-board.jpg" data-cap="Affordable housing solutions in flood-prone regions: board 01"><img src="img/arch/th-board-sm.jpg" alt="" loading="lazy"></button>
+        </div>
+      </article>
+
+      <!-- 02 GENTLE DENSITY -->
+      <article class="proj" id="proj-density" role="tabpanel" hidden>
+        <div class="proj-head">
+          <div>
+            <p class="label">M.Arch studio · NUST · 2023 · I-10 Markaz, Islamabad</p>
+            <h3 class="h3">Gentle Density</h3>
+            <p class="proj-sub">Mixed-use gentle-density housing for factory workers</p>
+          </div>
+          <dl class="proj-facts">
+            <div><dt>Site</dt><dd>I-10 Markaz industrial area</dd></div>
+            <div><dt>Modules</dt><dd>Single · shared · couple · family apartments</dd></div>
+            <div><dt>Sheets</dt><dd>4 × A0</dd></div>
+          </dl>
+        </div>
+        <p class="body proj-text">How can mixed-use gentle density address the housing and transport problems of factory workers in I-10 Markaz? The project starts from an analysis of how industry and housing meet in the Markaz: plot ratios, house density and street sections. It then proposes a low-rise, high-density block of four apartment modules (35 single, 35 shared, 20 couple, 10 family) around shared courts and terraces.</p>
+        <div class="sheets">
+          <div class="lens-stage" data-lens>
+            <img id="gdMain" src="img/arch/gd-1.jpg" alt="Gentle Density board">
+            <div class="lens" aria-hidden="true"></div>
+            <span class="lens-hint">Hover to zoom · select to enlarge</span>
+          </div>
+          <div class="sheet-thumbs" id="gdThumbs">
+            <button class="is-on" data-src="img/arch/gd-1.jpg"><img src="img/arch/gd-1-sm.jpg" alt="" loading="lazy"><span>A0-01 · Evolution of I-10 Markaz</span></button>
+            <button data-src="img/arch/gd-2.jpg"><img src="img/arch/gd-2-sm.jpg" alt="" loading="lazy"><span>A0-02 · Feasibility of gentle density</span></button>
+            <button data-src="img/arch/gd-3.jpg"><img src="img/arch/gd-3-sm.jpg" alt="" loading="lazy"><span>A0-03 · Masterplan &amp; floor plans</span></button>
+            <button data-src="img/arch/gd-4.jpg"><img src="img/arch/gd-4-sm.jpg" alt="" loading="lazy"><span>A0-04 · Modules, sections &amp; structure</span></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 CHINIOT -->
+      <article class="proj" id="proj-chiniot" role="tabpanel" hidden>
+        <div class="proj-head">
+          <div>
+            <p class="label">Urban heritage · 2020 · Chiniot, Punjab</p>
+            <h3 class="h3">Revitalizing Chiniot’s Cultural Spine</h3>
+            <p class="proj-sub">A heritage corridor connecting Umar Hayat Mahal and the Shahi Mosque</p>
+          </div>
+          <dl class="proj-facts">
+            <div><dt>Site area</dt><dd>approx. 18–25 acres</dd></div>
+            <div><dt>Concept</dt><dd>Urban stitching through heritage</dd></div>
+            <div><dt>Programme</dt><dd>Pedestrian spine · artisan workshops · galleries</dd></div>
+          </dl>
+        </div>
+        <p class="body proj-text">Chiniot’s landmarks stand isolated in a dense, traffic-dominated core. The proposal turns the space between them into a walkable cultural spine. Streets are redesigned for pedestrians, and vacant buildings are reused as woodcraft workshops, galleries and community spaces, so that heritage works as a living system that supports local economies.</p>
+        <div class="book" data-book="ch" data-pages="8"></div>
+      </article>
+
+      <!-- 04 TOLLINTON -->
+      <article class="proj" id="proj-tollinton" role="tabpanel" hidden>
+        <div class="proj-head">
+          <div>
+            <p class="label">Adaptive reuse · 2019 · Mall Road, Lahore</p>
+            <h3 class="h3">Tollinton Market</h3>
+            <p class="proj-sub">Boutique restaurant and heritage hotel</p>
+          </div>
+          <dl class="proj-facts">
+            <div><dt>Site area</dt><dd>3.5–4 acres</dd></div>
+            <div><dt>Concept</dt><dd>Intimate heritage: living and dining in history</dd></div>
+            <div><dt>Strategy</dt><dd>Minimal intervention in the historic shell</dd></div>
+          </dl>
+        </div>
+        <p class="body proj-text">Tollinton Market began as an exhibition hall and later became a market. The project reuses its large-span hall as human-scaled spaces for dining and staying. Verandahs and shaded thresholds come from Lahore’s colonial architecture, and contemporary insertions add new uses without disturbing the original form.</p>
+        <div class="book" data-book="tm" data-pages="8"></div>
+      </article>
+
+      <!-- 05 SAVOYE -->
+      <article class="proj" id="proj-savoye" role="tabpanel" hidden>
+        <div class="proj-head">
+          <div>
+            <p class="label">BIM · Autodesk Revit · M.Arch · 2024</p>
+            <h3 class="h3">Villa Savoye in BIM</h3>
+            <p class="proj-sub">Le Corbusier’s villa modelled as a full drawing set</p>
+          </div>
+          <dl class="proj-facts">
+            <div><dt>Sheets</dt><dd>A101 plans &amp; sections · A102 3D views</dd></div>
+            <div><dt>Includes</dt><dd>Grids, schedules, title blocks, renders</dd></div>
+            <div><dt>Tool</dt><dd>Autodesk Revit</dd></div>
+          </dl>
+        </div>
+        <p class="body proj-text">A BIM exercise: the villa is rebuilt as an information model and documented in two A1 sheets. Drag the handle to move between the 2D drawing set and the 3D model views generated from the same model.</p>
+        <div class="compare" data-compare>
+          <img src="img/arch/rv-2.jpg" alt="Villa Savoye 3D views sheet">
+          <div class="compare-top"><img src="img/arch/rv-1.jpg" alt="Villa Savoye floor plans and sections sheet"></div>
+          <div class="compare-handle" role="slider" tabindex="0" aria-label="Reveal drawings or 3D views" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⟷</span></div>
+          <span class="compare-tag compare-tag--l">Plans &amp; sections</span>
+          <span class="compare-tag compare-tag--r">3D views</span>
+        </div>
+      </article>
+
+      <!-- 06 ZOOSCAPE -->
+      <article class="proj" id="proj-zooscape" role="tabpanel" hidden>
+        <div class="proj-head">
+          <div>
+            <p class="label">B.Arch thesis · University of the Punjab · 2021 · Lahore</p>
+            <h3 class="h3">Zooscape</h3>
+            <p class="proj-sub">Immersion in nature: transforming the zoological garden in suburban Lahore</p>
+          </div>
+          <dl class="proj-facts">
+            <div><dt>Type</dt><dd>Landscape &amp; ecological design</dd></div>
+            <div><dt>Focus</dt><dd>Habitat immersion · visitor routes · site analysis</dd></div>
+            <div><dt>Result</dt><dd>Graduated with distinction</dd></div>
+          </dl>
+        </div>
+        <p class="body proj-text">The thesis reimagines the zoo as a landscape where visitors move through habitats rather than past cages. It combines environmental and ecological design, landscape architecture, site survey and mapping, from the first hand-drawn site plan to the final masterplan.</p>
+        <div class="lens-stage lens-stage--wide" data-lens>
+          <img src="img/arch/zoo-board.jpg" alt="Zooscape thesis board">
+          <div class="lens" aria-hidden="true"></div>
+          <span class="lens-hint">Hover to zoom · select to enlarge</span>
+        </div>
+        <div class="strip strip--two" data-gallery="zoo">
+          <button data-full="img/arch/zoo-sketch.jpg" data-cap="Hand-drawn site plan"><img src="img/arch/zoo-sketch-sm.jpg" alt="" loading="lazy"><span>Hand-drawn site plan</span></button>
+          <button data-full="img/arch/zoo-board.jpg" data-cap="Zooscape thesis board"><img src="img/arch/zoo-board-sm.jpg" alt="" loading="lazy"><span>Thesis board</span></button>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -278,6 +491,11 @@
       <div class="v-nav"><button class="chip" id="vPrev">← Previous</button><button class="chip" id="vNext">Next →</button></div>
     </div>
   </div>
+</dialog>
+
+<dialog class="lb" id="lb" aria-label="Enlarged drawing">
+  <div class="lb-bar"><p class="lb-cap" id="lbCap"></p><button class="chip" id="lbPrev">←</button><button class="chip" id="lbNext">→</button><button class="chip" id="lbClose">Close ×</button></div>
+  <div class="lb-img"><img id="lbImg" alt=""></div>
 </dialog>
 
 <script src="app.js"></script>
