@@ -312,7 +312,7 @@ $$('.crux button').forEach(b => b.addEventListener('click', () => lbOpen([{ src:
 /* sketchbook: a book whose pages turn */
 (() => {
   const host = $('#skBook'); if (!host) return;
-  const label = { ink:'Pen and ink', plan:'Plan / concept' };
+  const label = { ink:'Pen and ink', plan:'Plan / concept', pencil:'Pencil', mixed:'Mixed media' };
   let sheets = [], cur = 0, N = 0, items = [];
   const pageHTML = p => {
     if (p.t === 'cover') return `<div class="pgx cover"><i class="band"></i><div class="cover-label"><small>Sketchbook</small><b>Maria Jabeen</b><span>Drawings 01 – ${String(items.length).padStart(2, '0')}</span></div></div>`;
@@ -320,7 +320,7 @@ $$('.crux button').forEach(b => b.addEventListener('click', () => lbOpen([{ src:
     if (p.t === 'blank') return `<div class="pgx paper"><span class="pn">${p.n}</span></div>`;
     if (p.t === 'back') return `<div class="pgx cover back"><i class="band"></i></div>`;
     const i = p.item;
-    return `<figure class="pgx paper"><div class="pg-img"><img src="img/sketch/${i.id}-md.jpg" alt="${i.t}" loading="lazy" draggable="false"></div><figcaption><em>Fig. ${String(p.k + 1).padStart(2, '0')}</em> ${i.t}</figcaption><span class="pn">${p.n}</span><button type="button" class="pg-zoom" data-k="${p.k}" aria-label="Enlarge: ${i.t}">⤢</button></figure>`;
+    return `<figure class="pgx paper"><div class="pg-img"><img src="img/sketch/${i.id}-md.jpg" alt="${i.t}" loading="lazy" draggable="false"${i.mw < 500 ? ` style="max-width:${i.mw * 2}px"` : ''}></div><figcaption><em>Fig. ${String(p.k + 1).padStart(2, '0')}</em> ${i.t}</figcaption><span class="pn">${p.n}</span><button type="button" class="pg-zoom" data-k="${p.k}" aria-label="Enlarge: ${i.t}">⤢</button></figure>`;
   };
   const place = () => {
     sheets.forEach((sh, k) => { const f = k < cur; sh.classList.toggle('is-flipped', f); if (!sh._busy) sh.style.zIndex = f ? k + 1 : N - k; });
