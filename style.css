@@ -636,3 +636,13 @@ input[type=range]{width:100%; accent-color:var(--yellow); height:24px; cursor:po
 .art-photo--map img{aspect-ratio:1; object-fit:cover}
 .art-photo--poster{padding-bottom:26px}
 .art-photo--poster img{aspect-ratio:auto; object-fit:contain}
+
+/* ---- publications ---- */
+.pub-list{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:18px}
+.pub{display:grid;grid-template-columns:64px 1fr;gap:18px;border:1px solid var(--line);border-radius:12px;padding:24px 26px;background:var(--bg-2)}
+.pub-no{font:400 44px/1 var(--serif);color:var(--yellow)}
+.pub .h3{margin:6px 0 14px;max-width:34ch;font-size:clamp(22px,2.4vw,30px);line-height:1.15}
+.pub-note{font:400 13px/1.5 Inter,sans-serif;color:var(--text-2);margin:-4px 0 14px}
+@media (max-width:560px){.pub{grid-template-columns:1fr;padding:18px}.pub-no{font-size:32px}}
+.proj-title{margin:18px 0 6px;font:400 clamp(18px,2vw,22px)/1.3 var(--serif);color:var(--text);display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.proj-title .label{display:block;width:100%;margin:0}
