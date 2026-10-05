@@ -304,6 +304,8 @@ lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') lbShow(lbI + 1
 
 /* conferences */
 $$('.conf-img').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.dataset.full, cap:b.dataset.cap }], 0)));
+/* instagram screenshots */
+$$('.ig-shot').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.dataset.full, cap:b.dataset.cap }], 0)));
 /* crux image */
 $$('.crux button').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.dataset.full, cap:b.dataset.cap }], 0)));
 
