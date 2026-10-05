@@ -484,17 +484,18 @@
           <dl class="proj-facts">
             <div><dt>Media</dt><dd>Pen &amp; ink · marker · digital collage</dd></div>
             <div><dt>Subjects</dt><dd>Old-city fabric · street life · parks · plans</dd></div>
-            <div><dt>Items</dt><dd>6 drawings</dd></div>
+            <div><dt>Items</dt><dd>9 drawings</dd></div>
           </dl>
         </div>
         <p class="body proj-text">Drawing is how I think through a place before it becomes a model or a map. The isometric reads a walled-city block as one layered building of stairs, jharokas, terraces and shopfronts. The desk sketches test stalls, street sections and a circular market plan, and the collage gathers architectural plans into a single field.</p>
-        <div class="sk-filter" role="group" aria-label="Filter sketches">
-          <button class="chip is-on" data-skf="all">All</button>
-          <button class="chip" data-skf="ink">Ink studies</button>
-          <button class="chip" data-skf="plan">Plans &amp; concepts</button>
-          <span class="sk-count" id="skCount"></span>
+        <div class="sbook-wrap">
+          <div class="sbook" id="skBook" tabindex="0" role="group" aria-label="Sketchbook. Click a page, swipe or use the arrow keys to turn pages."></div>
+          <div class="sbook-ctrl">
+            <button type="button" class="chip" id="skPrev">← Previous</button>
+            <span class="sbook-count" id="skCount" aria-live="polite">Closed</span>
+            <button type="button" class="chip" id="skNext">Open the sketchbook →</button>
+          </div>
         </div>
-        <div class="sk-wall" id="skWall" aria-live="polite"></div>
       </article>
 
 

@@ -309,20 +309,56 @@ $$('.ig-shot').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.da
 /* crux image */
 $$('.crux button').forEach(b => b.addEventListener('click', () => lbOpen([{ src:b.dataset.full, cap:b.dataset.cap }], 0)));
 
-/* sketchbook wall */
+/* sketchbook: a book whose pages turn */
 (() => {
-  const wall = $('#skWall'); if (!wall) return;
-  let items = [], f = 'all';
-  const label = { section:'Exhibit section', ink:'Ink study', plan:'Plan / concept' };
-  const draw = () => {
-    const list = items.filter(i => f === 'all' || i.cat === f);
-    $('#skCount').textContent = list.length + ' drawings';
-    wall.innerHTML = list.map((i, k) => `<button type="button" class="sk" data-k="${k}"><img src="img/sketch/${i.id}-sm.jpg" alt="${i.t}" width="${i.w}" height="${i.h}" loading="lazy"><span>${i.t}</span></button>`).join('');
-    const L = list.map(i => ({ src:`img/sketch/${i.id}.jpg`, cap:`${i.t} · ${label[i.cat]}` }));
-    $$('.sk', wall).forEach(b => b.addEventListener('click', () => lbOpen(L, +b.dataset.k)));
+  const host = $('#skBook'); if (!host) return;
+  const label = { ink:'Pen and ink', plan:'Plan / concept' };
+  let sheets = [], cur = 0, N = 0, items = [];
+  const pageHTML = p => {
+    if (p.t === 'cover') return `<div class="pgx cover"><i class="band"></i><div class="cover-label"><small>Sketchbook</small><b>Maria Jabeen</b><span>Drawings 01 – ${String(items.length).padStart(2, '0')}</span></div></div>`;
+    if (p.t === 'title') return `<div class="pgx paper title"><p class="t-kick">Pen · marker · digital collage</p><h4>Sketchbook</h4><p class="t-by">Maria Jabeen<br>Architect · Lahore</p><p class="t-hint">Turn the page →</p></div>`;
+    if (p.t === 'blank') return `<div class="pgx paper"><span class="pn">${p.n}</span></div>`;
+    if (p.t === 'back') return `<div class="pgx cover back"><i class="band"></i></div>`;
+    const i = p.item;
+    return `<figure class="pgx paper"><div class="pg-img"><img src="img/sketch/${i.id}-md.jpg" alt="${i.t}" loading="lazy" draggable="false"></div><figcaption><em>Fig. ${String(p.k + 1).padStart(2, '0')}</em> ${i.t}</figcaption><span class="pn">${p.n}</span><button type="button" class="pg-zoom" data-k="${p.k}" aria-label="Enlarge: ${i.t}">⤢</button></figure>`;
   };
-  $$('[data-skf]').forEach(b => b.addEventListener('click', () => { f = b.dataset.skf; $$('[data-skf]').forEach(x => x.classList.toggle('is-on', x === b)); draw(); }));
-  fetch('img/sketch/manifest.json').then(r => r.json()).then(d => { items = d; draw(); }).catch(() => { wall.textContent = 'Sketches could not be loaded.'; });
+  const place = () => {
+    sheets.forEach((sh, k) => { const f = k < cur; sh.classList.toggle('is-flipped', f); if (!sh._busy) sh.style.zIndex = f ? k + 1 : N - k; });
+    host.dataset.pos = cur === 0 ? 'start' : cur === N ? 'end' : 'mid';
+    const first = $('#skPrev'), nxt = $('#skNext'), cnt = $('#skCount');
+    first.disabled = cur === 0; nxt.disabled = cur === N;
+    if (cur === 0) { cnt.textContent = 'Closed'; nxt.textContent = 'Open the sketchbook →'; }
+    else if (cur === N) { cnt.textContent = 'The end'; nxt.textContent = 'Next →'; }
+    else { cnt.textContent = 'Spread ' + cur + ' of ' + (N - 1); nxt.textContent = 'Next →'; }
+  };
+  const go = d => {
+    const t = Math.max(0, Math.min(N, cur + d)); if (t === cur) return;
+    const k = d > 0 ? cur : t, sh = sheets[k];
+    sh._busy = true; sh.style.zIndex = N + 2;
+    cur = t; place();
+    setTimeout(() => { sh._busy = false; place(); }, 950);
+  };
+  fetch('img/sketch/manifest.json').then(r => r.json()).then(d => {
+    items = d;
+    const pages = [{ t:'cover' }, { t:'title' }];
+    items.forEach((it, k) => pages.push({ t:'sketch', item:it, k }));
+    if ((pages.length + 1) % 2) pages.push({ t:'blank' });
+    pages.push({ t:'back' });
+    pages.forEach((p, n) => { p.n = n + 1; });
+    N = pages.length / 2;
+    host.innerHTML = Array.from({ length:N }, (_, k) => `<div class="sheet"><div class="face front" data-d="1">${pageHTML(pages[2 * k])}</div><div class="face back" data-d="-1">${pageHTML(pages[2 * k + 1])}</div></div>`).join('');
+    sheets = $$('.sheet', host);
+    const L = items.map(i => ({ src:`img/sketch/${i.id}.jpg`, cap:`${i.t} · ${label[i.cat] || ''}` }));
+    $$('.face', host).forEach(f => f.addEventListener('click', e => { if (e.target.closest('.pg-zoom')) return; if (moved) return; go(+f.dataset.d); }));
+    $$('.pg-zoom', host).forEach(b => b.addEventListener('click', e => { e.stopPropagation(); lbOpen(L, +b.dataset.k); }));
+    place();
+  }).catch(() => { host.textContent = 'The sketchbook could not be loaded.'; });
+  let sx = 0, moved = false;
+  host.addEventListener('pointerdown', e => { sx = e.clientX; moved = false; });
+  host.addEventListener('pointerup', e => { const dx = e.clientX - sx; if (Math.abs(dx) > 50) { moved = true; go(dx < 0 ? 1 : -1); setTimeout(() => { moved = false; }, 50); } });
+  host.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { go(1); e.preventDefault(); } if (e.key === 'ArrowLeft') { go(-1); e.preventDefault(); } });
+  $('#skPrev').addEventListener('click', () => go(-1));
+  $('#skNext').addEventListener('click', () => go(1));
 })();
 
 $$('[data-gallery]').forEach(g => { const btns = $$('button', g); const list = btns.map(b => ({ src:b.dataset.full, cap:b.dataset.cap }));
